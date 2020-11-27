@@ -1,0 +1,6 @@
+{
+    "token": {
+        "secret": "shhhh",
+        "expiresInSeconds": 3600
+    }
+}
