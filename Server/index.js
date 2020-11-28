@@ -8,7 +8,7 @@ const io = require('socket.io')(http, {
         origin: "*"
     }
 });
-const Message = require('./models/Message');
+const Message = require('./models/message');
 const appPort = 3001;
 const httpPort = 5000;
 const cors = require('cors');
@@ -23,7 +23,7 @@ mongoose.set('debug', true);
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // models 
-require('./models/User');
+require('./models/user');
 
 // parameters -> routes "/" is an empty route
 // second parameter is an function in line declaration 
