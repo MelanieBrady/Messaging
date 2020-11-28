@@ -87,7 +87,7 @@ class HomePage extends React.Component {
                         <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
                             <Form.Control type="text" placeholder="Search for username..."
                                 onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
-                        <Button style={{ float: 'left' }} variant="warning" size="sm" type="submit">Search</Button>
+                        <Button style={{ float: 'left', 'background-color': '#4CAF50' }} variant="warning" size="sm" type="submit">Search</Button>
                     </ul>
                 </div>
             );

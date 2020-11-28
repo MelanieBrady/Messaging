@@ -20,7 +20,7 @@
         list-style-type: none;
         margin: 0 auto;
         overflow: hidden;
-        background-color: rgb(144, 207, 119);
+        background-color: rgb(238, 184, 153);
         padding: 6px 8px;
         text-align: center;
         vertical-align: middle;
@@ -36,7 +36,7 @@
     .smallLogo img {
         float: left;
         margin: 0 auto;
-        max-width: 80px;
+        max-width: 85px;
         height: auto;
         padding: 0px 0px;
     }
