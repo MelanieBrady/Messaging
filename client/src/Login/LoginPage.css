@@ -11,8 +11,9 @@
    .logo_container img {
     margin-left: auto;
     margin-right: auto;
-    max-width: auto;
+    max-width: 320px;
     height: auto;
+    background-position: center;
     }
 
   }
