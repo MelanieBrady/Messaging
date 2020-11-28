@@ -32,7 +32,6 @@ class HomePage extends React.Component {
     }
 
     handleLogOutSubmit = (event) => {
-        console.log(res);
         this.setState({ loggedIn: false });
         localStorage.setItem('loggedIn', false);
         localStorage.setItem('token', null);
