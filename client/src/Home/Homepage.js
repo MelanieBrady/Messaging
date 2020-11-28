@@ -12,6 +12,9 @@ class HomePage extends React.Component {
         super(props);
 
         this.state = {
+            username: "",
+            password: "",
+            newPassword: "",
             usernameSearch: "",
             usernameSearchSubmitted: false,
             loggedIn: false,
@@ -40,9 +43,18 @@ class HomePage extends React.Component {
     }
 
     // Allows for the user to reset password
-    // handlePasswordReset = () => {
+    handlePasswordReset = (event) => {
+        event.preventDefault();
 
-    // }
+        axios.post('http://3.135.218.245:3001/reset', {
+            username: this.state.username,
+            password: this.state.password,
+            newPassword: this.state.newPassword,
+        }).then((res) => {
+            console.log(res);
+            this.setState({ loggedIn: false });
+        });
+    }
 
     render() {
 
