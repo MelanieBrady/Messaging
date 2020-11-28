@@ -3,6 +3,20 @@ import { Form, Button } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
 import {
     Link,
 } from 'react-router-dom';
@@ -68,6 +82,26 @@ class HomePage extends React.Component {
 
             return (
                 <div>
+                    <Form onSubmit={this.handleUsernameSearchSubmit}>
+                        <Form.Group controlId="formUsernameSearch">
+                            <Form.Control type="" placeholder="Search for Username"
+                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Search
+                        </Button>
+                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handlePasswordReset}>
+                            Reset Password
+                        </Button>
+                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
+                            Log Out
+                        </Button>
+                    </Form>
+                </div>
+            );
+        } else {
+            return (
+                <div>
                     <Grid container component="main" className={classes.root}>
                         <CssBaseline />
                         <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -78,7 +112,7 @@ class HomePage extends React.Component {
                                 </Avatar>
                                 <Typography component="h1" variant="h5">
                                     Sign in
-                    </Typography>
+          </Typography>
                                 <form className={classes.form} noValidate>
                                     <TextField
                                         variant="outlined"
@@ -114,12 +148,12 @@ class HomePage extends React.Component {
                                         className={classes.submit}
                                     >
                                         Sign In
-                      </Button>
+            </Button>
                                     <Grid container>
                                         <Grid item xs>
                                             <Link href="#" variant="body2">
                                                 Forgot password?
-                          </Link>
+                </Link>
                                         </Grid>
                                         <Grid item>
                                             <Link href="#" variant="body2">
@@ -134,28 +168,6 @@ class HomePage extends React.Component {
                             </div>
                         </Grid>
                     </Grid>
-
-                    <Form onSubmit={this.handleUsernameSearchSubmit}>
-                        <Form.Group controlId="formUsernameSearch">
-                            <Form.Control type="" placeholder="Search for Username"
-                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Search
-                        </Button>
-                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handlePasswordReset}>
-                            Reset Password
-                        </Button>
-                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
-                            Log Out
-                        </Button>
-                    </Form>
-                </div>
-            );
-
-        } else {
-            return (
-                <div>
                     <p>this is the home page</p>
                     <div className="menu">
                         <ul>
