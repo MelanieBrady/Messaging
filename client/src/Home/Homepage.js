@@ -45,7 +45,6 @@ class HomePage extends React.Component {
     // Allows for the user to reset password
     handlePasswordReset = (event) => {
         event.preventDefault();
-
         axios.post('http://3.135.218.245:3001/reset', {
             username: this.state.username,
             password: this.state.password,
