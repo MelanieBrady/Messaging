@@ -33,8 +33,6 @@ class HomePage extends React.Component {
 
     handleLogOutSubmit = (event) => {
         axios.post('/', {
-            username: "",
-            password: "",
         }).then((res) => {
             console.log(res);
             this.setState({ loggedIn: false });
