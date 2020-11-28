@@ -50,7 +50,7 @@ export default function BottomBar(props) {
             <Toolbar>
                 <div className={classes.inputContainer} style={{ maxWidth: '100px' }}>
                     <div className={classes.icon}> </div>
-                    <h3 style={{ 'textAlign': 'center' }}> {currentUser} </h3>
+                    <h4 style={{ 'textAlign': 'center' }}> {currentUser} </h4>
                 </div>
                 <div className={classes.inputContainer}>
                     <form onSubmit={props.handleSubmit}>
