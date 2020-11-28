@@ -81,8 +81,8 @@ class HomePage extends React.Component {
                             onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
                     <Button style={{ float: 'left' }} variant="info" size="sm" type="submit">Search</Button>
 
-                    <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordReset} class="right"> Reset Password </Button>
                     <Button style={{ float: 'right' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit} class="right"> Log Out </Button>
+                    <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordReset} class="right"> Reset Password </Button>
                 </ul>
             );
 
