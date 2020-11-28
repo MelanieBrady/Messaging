@@ -9,7 +9,7 @@
 
     .horizontal_TopRow {
         list-style-type: none;
-        margin: 0;
+        margin: 0 auto;
         overflow: hidden;
         background-color: #333;
         padding: 6px 8px;
@@ -18,12 +18,25 @@
 
     .horizontal_SecondRow {
         list-style-type: none;
-        margin: 0;
+        margin: 0 auto;
         overflow: hidden;
         background-color: rgb(144, 207, 119);
         padding: 6px 8px;
         text-align: center;
         vertical-align: middle;
+    }
+
+    .logo_container img {
+        display: block;
+        margin: 0 auto;
+        max-width: 320px;
+        height: auto;
+    }
+
+    .logo_container small img {
+        margin: 0 auto;
+        max-width: 100px;
+        height: auto;
     }
 
 }
