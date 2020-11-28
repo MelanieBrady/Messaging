@@ -7,5 +7,8 @@
         background-repeat: no-repeat;
     }
 
-
+    .header {
+        float: left;
+        border: 1px grey;
+    }
 }
