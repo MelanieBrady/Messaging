@@ -27,7 +27,7 @@ export default class LoginPage extends React.Component {
 
         console.log(this.state.username + ' ' + this.state.password);
 
-        axios.post('http://3.135.218.245/:3001/login', {
+        axios.post('http://3.135.218.245:3001/login', {
             username: this.state.username,
             password: this.state.password,
         }).then((res) => {
