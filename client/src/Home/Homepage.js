@@ -89,24 +89,15 @@ class HomePage extends React.Component {
         } else {
             return (
                 <div>
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a class="navbar-brand" href="#"></a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                    <p>this is the home page</p>
+                    <div className="menu">
+                        <ul>
+                            <li> <Link to="/login">this is a link to the login page</Link> </li>
+                            <li> <Link to="/register">this is a link to the register page</Link> </li>
+                            <li> <Link to="/profile/test">this is a link to the test page</Link> </li>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active"> <Link to="/login">Login</Link> </li>
-                                <li class="nav-item"> <Link to="/register">Register</Link>
-                                </li>
-                            </ul>
-                            <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search for user" aria-label="Search"> </input>
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                        </div>
-                    </nav>
+                        </ul>
+                    </div>
                 </div>
             );
         }
