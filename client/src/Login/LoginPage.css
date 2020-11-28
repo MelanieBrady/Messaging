@@ -1,4 +1,4 @@
-@media all and (min-width: 480px) {
+@media all and (min-width: 320px) {
     .Login {
       padding: 30px 0;
     }
@@ -9,8 +9,7 @@
     }
 
    .logo_container img {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     max-width: 320px;
     height: auto;
     background-position: center;
