@@ -51,7 +51,6 @@ class HomePage extends React.Component {
             password: this.state.password,
             newPassword: this.state.newPassword,
         }).then((res) => {
-            console.log(res);
             this.setState({ loggedIn: false });
         });
     }
