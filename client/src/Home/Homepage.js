@@ -24,7 +24,7 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        const loggedIn = localStorage.getItem('loggedIn');
+        const loggedIn = JSON.parse(localStorage.getItem('loggedIn'));
         console.log(loggedIn);
         if (loggedIn) {
             this.setState({ loggedIn: true });
