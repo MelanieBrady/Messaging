@@ -20,6 +20,7 @@ class HomePage extends React.Component {
             usernameSearch: "",
             usernameSearchSubmitted: false,
             loggedIn: false,
+            userViewsOwnProfile: false,
         }
     }
 
@@ -55,14 +56,11 @@ class HomePage extends React.Component {
             this.setState({ loggedIn: false });
         });
     }
-    // <Button style={{ float: 'left' }} variant="primary" size="sm"> My Profile </Button>
-    // <Form style={{ float: 'left' }} onSubmit={this.handleUsernameSearchSubmit}>
-    //     <Form.Control type="text" placeholder="Search for username..."
-    //         onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
-    // <Button style={{ float: 'left' }} variant="info" size="sm" type="submit">Search</Button>
 
-    // <Button style={{ float: 'left' }} variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
-    // <Button style={{ float: 'left' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
+    handleMyProfile = (event) => {
+        this.setState({ userViewsOwnProfile: true });
+    }
+
     render() {
 
         if (this.state.loggedIn) {
@@ -73,13 +71,19 @@ class HomePage extends React.Component {
                 );
             }
 
+            if (this.state.userViewsOwnProfile) {
+                return (
+                    <Redirect to={`/profile/${localStorage.getItem('username')}`} />
+                );
+            }
+
             return (
                 <div>
                     <ul class="horizontal_TopRow">
                         <div className="smallLogo">
                             <img src="https://lh3.googleusercontent.com/hMjdvzKdf3jyhja4M7APZdeBv5PMXE9TgEY7cdGcmHvNj82x4594wKoTED-8fyXsH5oVnwTemRi1-2DBNA4WkxsSgbxEn8ctT7cXzcc67kKjdbscB4uPT9yG5MjOhrph_xHCGUoHh3bucMc_ueEaQMsavazPpg4x6b9ta7G8oevNcvoh4-6sMH7PjOtdN6G0Ed2UdP7gQOjs3FvG1CHLUlPJiZlno9Fpcqteg1Jfe_4YgxW5TSlgtYHEZrpV1j-JFFYg4-6H2_7UYXzzXKUD8sTvq8cbTygZKJYr_rTGrxKTDArldkjk-VrI0DVfZqKY7zJO4s7ZfNqeKZSQuEv29ih7s8HCHD_Q_od7DZheisutKlmIdrVQmlr2o51s6yIqmDwetMbcr1pkUTZwZU13CfrUVbGrEoPZmC4gY4W6M1cWl2LhGt_St9Hewkr860A_SJS7RTJp0P-p7YANHXDWy9StbQfLLHaqQFJgXzBNCJ7sw7vUsfGXFGoIfzvhO3cdaAb8pCrtUYvibgw9SVF5yR6B6GXUiBJ-BTrpN6CzLZrXr-MAxesPhXj5hUJ9B4pK0f2DDOc8ys_Ktx6dESVpSMQP0P6Wv0o0tQ2T_66YKRQxWpSoxoP7Dj7Bri5eZIBGsSBE3ajfXA0YkgiQpxQwa6mozZBquoxnUNXvdjDbH6NbJF2-QUknTz0fnYNLUw=w1015-h375-no?authuser=0" />
                         </div>
-                        <Button style={{ float: 'left' }} variant="primary" size="sm"> My Profile </Button>
+                        <Button style={{ float: 'left' }} variant="primary" size="sm" onClick={this.handleMyProfile}> My Profile </Button>
                         <Button style={{ float: 'right' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit} class="right"> Log Out </Button>
                         <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordReset} class="right"> Reset Password </Button>
                     </ul>
@@ -98,7 +102,7 @@ class HomePage extends React.Component {
                     <div className="logo_container">
                         <img src="https://lh3.googleusercontent.com/hMjdvzKdf3jyhja4M7APZdeBv5PMXE9TgEY7cdGcmHvNj82x4594wKoTED-8fyXsH5oVnwTemRi1-2DBNA4WkxsSgbxEn8ctT7cXzcc67kKjdbscB4uPT9yG5MjOhrph_xHCGUoHh3bucMc_ueEaQMsavazPpg4x6b9ta7G8oevNcvoh4-6sMH7PjOtdN6G0Ed2UdP7gQOjs3FvG1CHLUlPJiZlno9Fpcqteg1Jfe_4YgxW5TSlgtYHEZrpV1j-JFFYg4-6H2_7UYXzzXKUD8sTvq8cbTygZKJYr_rTGrxKTDArldkjk-VrI0DVfZqKY7zJO4s7ZfNqeKZSQuEv29ih7s8HCHD_Q_od7DZheisutKlmIdrVQmlr2o51s6yIqmDwetMbcr1pkUTZwZU13CfrUVbGrEoPZmC4gY4W6M1cWl2LhGt_St9Hewkr860A_SJS7RTJp0P-p7YANHXDWy9StbQfLLHaqQFJgXzBNCJ7sw7vUsfGXFGoIfzvhO3cdaAb8pCrtUYvibgw9SVF5yR6B6GXUiBJ-BTrpN6CzLZrXr-MAxesPhXj5hUJ9B4pK0f2DDOc8ys_Ktx6dESVpSMQP0P6Wv0o0tQ2T_66YKRQxWpSoxoP7Dj7Bri5eZIBGsSBE3ajfXA0YkgiQpxQwa6mozZBquoxnUNXvdjDbH6NbJF2-QUknTz0fnYNLUw=w1015-h375-no?authuser=0" />
                     </div>
-                    <ul class="horizontal_TopRow">
+                    <ul class="horizontal_TopRow_LoggedOut">
                         <li> <Link to="/login">Login</Link> </li>
                         <li> <Link to="/register">Register</Link> </li>
                     </ul>
