@@ -68,15 +68,15 @@ class HomePage extends React.Component {
             }
 
             return (
-                <div>
+                <div class="header">
                     <Button variant="primary" size="sm" type="submit"> My Profile </Button>
-                    <Button variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
-                    <Button variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
-                    <Button inline variant="info" size="sm" type="submit">Search</Button>
-                    <Form inline onSubmit={this.handleUsernameSearchSubmit}>
+                    <Form style={{ float: left }} onSubmit={this.handleUsernameSearchSubmit}>
                         <Form.Control type="text" placeholder="Search for username..."
                             onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
+                    <Button style={{ float: left }} variant="info" size="sm" type="submit">Search</Button>
 
+                    <Button variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
+                    <Button variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
                 </div >
             );
 
