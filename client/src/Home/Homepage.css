@@ -34,10 +34,10 @@
     }
 
     .smallLogo img {
-        margin: 0 auto;
+        float: left;
+        margin: 0px 15px 15px 0px;
         max-width: 100px;
         height: auto;
-        text-align: left
     }
 
 }
