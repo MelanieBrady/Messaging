@@ -99,7 +99,7 @@ export default class Register extends React.Component {
                         />
                     </Form.Group>
                     <Button block size="lg" type="submit" disabled={!this.validateForm()}>
-                        Login
+                        Register
         </Button>
                 </Form>
             </div>

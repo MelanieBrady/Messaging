@@ -40,7 +40,7 @@ export default class LoginPage extends React.Component {
 
         }).catch((error) => {
             console.log(error);
-            if (error.response.status === 401) {
+            if (error.response && error.response.status === 401) {
                 alert('Invalid username/password combination');
             }
         });
