@@ -31,6 +31,19 @@ class HomePage extends React.Component {
         }
     }
 
+    handleLogOutSubmit = (event) => {
+        axios.post('/', {
+            username: "",
+            password: "",
+        }).then((res) => {
+            console.log(res);
+            this.setState({ loggedIn: false });
+            localStorage.setItem('loggedIn', false);
+            localStorage.setItem('token', null);
+            localStorage.setItem('username', null);
+        });
+    }
+
     render() {
 
         if (this.state.loggedIn) {
@@ -51,6 +64,9 @@ class HomePage extends React.Component {
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             Submit
+                        </Button>
+                        <Button block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
+                            Log Out
                         </Button>
                     </Form>
                 </div>
