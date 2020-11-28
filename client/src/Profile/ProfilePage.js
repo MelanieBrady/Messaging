@@ -91,7 +91,7 @@ export default class ProfilePage extends React.Component {
 
         return (
             <div>
-                <nav aria-label="breadcrumb" class="main-breadcrumb" style={{ 'background-color': 'rgb(239, 185, 185)' }}>
+                <nav aria-label="breadcrumb" class="main-breadcrumb" style={{ "background-color": "rgb(239, 185, 185)" }}>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item active" aria-current="page"><Link to="/">Home</Link> </li>
                         <li class="breadcrumb-item active" aria-current="page">User Profile</li>
