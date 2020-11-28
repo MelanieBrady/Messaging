@@ -55,8 +55,14 @@ class HomePage extends React.Component {
             this.setState({ loggedIn: false });
         });
     }
-    //                         <Form.Group controlId="formUsernameSearch" size="sm">
+    // <Button style={{ float: 'left' }} variant="primary" size="sm"> My Profile </Button>
+    // <Form style={{ float: 'left' }} onSubmit={this.handleUsernameSearchSubmit}>
+    //     <Form.Control type="text" placeholder="Search for username..."
+    //         onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
+    // <Button style={{ float: 'left' }} variant="info" size="sm" type="submit">Search</Button>
 
+    // <Button style={{ float: 'left' }} variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
+    // <Button style={{ float: 'left' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
     render() {
 
         if (this.state.loggedIn) {
@@ -68,18 +74,16 @@ class HomePage extends React.Component {
             }
 
             return (
-                <nav>
-                    <div class="header">
-                        <Button style={{ float: 'left' }} variant="primary" size="sm"> My Profile </Button>
-                        <Form style={{ float: 'left' }} onSubmit={this.handleUsernameSearchSubmit}>
-                            <Form.Control type="text" placeholder="Search for username..."
-                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
-                        <Button style={{ float: 'left' }} variant="info" size="sm" type="submit">Search</Button>
+                <ul class="horizontal">
+                    <Button style={{ float: 'left' }} variant="primary" size="sm"> My Profile </Button>
+                    <Form style={{ float: 'left' }} onSubmit={this.handleUsernameSearchSubmit}>
+                        <Form.Control type="text" placeholder="Search for username..."
+                            onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
+                    <Button style={{ float: 'left' }} variant="info" size="sm" type="submit">Search</Button>
 
-                        <Button style={{ float: 'left' }} variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
-                        <Button style={{ float: 'left' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
-                    </div >
-                </nav>
+                    <Button style={{ float: 'left' }} variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
+                    <Button style={{ float: 'left' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
+                </ul>
             );
 
         } else {
