@@ -10,20 +10,18 @@
     .horizontal_TopRow {
         list-style-type: none;
         margin: 0;
-        padding: 0;
         overflow: hidden;
         background-color: #333;
-        padding: 8px 10px;
+        padding: 6px 8px;
         text-align: center;
     }
 
     .horizontal_SecondRow {
         list-style-type: none;
         margin: 0;
-        padding: 0;
         overflow: hidden;
         background-color: rgba(80, 255, 147, 0.575);
-        padding: 8px 10px;
+        padding: 6px 8px;
         text-align: center;
     }
 
