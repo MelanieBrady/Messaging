@@ -1,7 +1,7 @@
-@media all and (min-width: 480px) {
+@media all {
     body {
         background-image: url('https://i.redd.it/klttow3qk2e41.jpg');
-        background-color: #cccccc;
+        background-color: #080808;
         background-position: center;
         background-attachment: fixed;
         background-repeat: no-repeat;
