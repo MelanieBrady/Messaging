@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap'
+// import { Form, Button } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
@@ -117,6 +117,26 @@ class HomePage extends React.Component {
 
             return (
                 <div>
+                    {/* <Form onSubmit={this.handleUsernameSearchSubmit}>
+                        <Form.Group controlId="formUsernameSearch">
+                            <Form.Control type="" placeholder="Search for Username"
+                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Search
+                        </Button>
+                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handlePasswordReset}>
+                            Reset Password
+                        </Button>
+                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
+                            Log Out
+                        </Button>
+                    </Form> */}
+                </div>
+            );
+        } else {
+            return (
+                <div>
                     <Container component="main" maxWidth="xs">
                         <CssBaseline />
                         <div className={classes.paper}>
@@ -203,26 +223,6 @@ class HomePage extends React.Component {
                             <Copyright />
                         </Box>
                     </Container>
-                    <Form onSubmit={this.handleUsernameSearchSubmit}>
-                        <Form.Group controlId="formUsernameSearch">
-                            <Form.Control type="" placeholder="Search for Username"
-                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Search
-                        </Button>
-                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handlePasswordReset}>
-                            Reset Password
-                        </Button>
-                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
-                            Log Out
-                        </Button>
-                    </Form>
-                </div>
-            );
-        } else {
-            return (
-                <div>
                     <p>this is the home page</p>
                     <div className="menu">
                         <ul>
