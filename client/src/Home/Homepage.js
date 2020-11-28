@@ -32,20 +32,16 @@ class HomePage extends React.Component {
     }
 
     handleLogOutSubmit = (event) => {
-        axios.post('/', {
-        }).then((res) => {
-            console.log(res);
-            this.setState({ loggedIn: false });
-            localStorage.setItem('loggedIn', false);
-            localStorage.setItem('token', null);
-            localStorage.setItem('username', null);
-        });
+        console.log(res);
+        this.setState({ loggedIn: false });
+        localStorage.setItem('loggedIn', false);
+        localStorage.setItem('token', null);
+        localStorage.setItem('username', null);
     }
 
     render() {
 
         if (this.state.loggedIn) {
-
             // Add more to the logged in 
             if (this.state.usernameSearchSubmitted) {
                 return (
