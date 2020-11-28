@@ -52,11 +52,6 @@ export default class LoginPage extends React.Component {
                 <Redirect to='/' />
             );
         }
-        // .logo_container {
-        //     width: 300px;
-        //     height: 300px;
-        //     line-height: 300px;
-        //   }
         return (
             <div>
                 <div className="logo_container">
