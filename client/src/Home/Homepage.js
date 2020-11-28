@@ -76,7 +76,7 @@ class HomePage extends React.Component {
             return (
                 <ul class="horizontal">
                     <Button style={{ float: 'left' }} variant="primary" size="sm"> My Profile </Button>
-                    <Form style={{ float: 'left' }} onSubmit={this.handleUsernameSearchSubmit}>
+                    <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
                         <Form.Control type="text" placeholder="Search for username..."
                             onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
                     <Button style={{ float: 'left' }} variant="info" size="sm" type="submit">Search</Button>
