@@ -98,43 +98,43 @@ class HomePage extends React.Component {
                                 </li>
                             </ul>
                             <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> </input>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
 
-                        <Form onSubmit={this.handleUsernameSearchSubmit}>
-                            <Form.Group controlId="formUsernameSearch">
-                                <Form.Control type="" placeholder="Search for Username"
-                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
-                            </Form.Group>
-                            <Button variant="primary" block size="sm" type="submit">
-                                Search
+                    <Form onSubmit={this.handleUsernameSearchSubmit}>
+                        <Form.Group controlId="formUsernameSearch">
+                            <Form.Control type="" placeholder="Search for Username"
+                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
+                        </Form.Group>
+                        <Button variant="primary" block size="sm" type="submit">
+                            Search
                         </Button>
-                            <Button variant="primary" block size="sm" onClick={this.handlePasswordReset}>
-                                Reset Password
+                        <Button variant="primary" block size="sm" onClick={this.handlePasswordReset}>
+                            Reset Password
                         </Button>
-                            <Button variant="primary" block size="sm" onClick={this.handleLogOutSubmit}>
-                                Log Out
+                        <Button variant="primary" block size="sm" onClick={this.handleLogOutSubmit}>
+                            Log Out
                         </Button>
-                        </Form>
+                    </Form>
                 </div>
             );
 
         } else {
             return (
-                    <div>
-                        <p>this is the home page</p>
-                        <div className="menu">
-                            <ul>
-                                <li> <Link to="/login">this is a link to the login page</Link> </li>
-                                <li> <Link to="/register">this is a link to the register page</Link> </li>
-                                <li> <Link to="/profile/test">this is a link to the test page</Link> </li>
+                <div>
+                    <p>this is the home page</p>
+                    <div className="menu">
+                        <ul>
+                            <li> <Link to="/login">this is a link to the login page</Link> </li>
+                            <li> <Link to="/register">this is a link to the register page</Link> </li>
+                            <li> <Link to="/profile/test">this is a link to the test page</Link> </li>
 
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
+                </div>
             );
         }
     }
