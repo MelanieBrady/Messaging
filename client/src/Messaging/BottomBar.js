@@ -48,18 +48,13 @@ export default function BottomBar(props) {
     return (
         <AppBar position="fixed" className={classes.appBar}>
             <Toolbar>
-                <div className={classes.inputContainer} style={{ maxWidth: '200px' }}>
-                    <div className={classes.icon}>
-                    </div>
-                    <h3 style={{ 'textAlign': 'center' }}>
-                        {currentUser}
-                    </h3>
+                <div className={classes.inputContainer} style={{ maxWidth: '100px' }}>
+                    <div className={classes.icon}> </div>
+                    <h3 style={{ 'textAlign': 'center' }}> {currentUser} </h3>
                 </div>
                 <div className={classes.inputContainer}>
                     <form onSubmit={props.handleSubmit}>
-                        <div className={classes.icon}>
-                            <ChatIcon />
-                        </div>
+                        <div className={classes.icon}> <ChatIcon /> </div>
                         <InputBase
                             onChange={props.handleContent}
                             value={props.content}
