@@ -70,14 +70,14 @@ class HomePage extends React.Component {
                 <div>
                     <Form class="form-inline" onSubmit={this.handleUsernameSearchSubmit}>
                         <Button variant="primary" size="sm" type="submit"> My Profile </Button>
+                        <Button variant="primary" size="sm" type="submit"> Search </Button>
                         <Button variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
-                        <Button variant="secondary" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
+                        <Button variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
 
                         <Form.Group controlId="formUsernameSearch">
                             <Form.Control type="" placeholder="Search for username..."
                                 onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
                         </Form.Group>
-                        <Button variant="primary" size="sm" type="submit"> Search </Button>
                     </Form>
                 </div>
             );
