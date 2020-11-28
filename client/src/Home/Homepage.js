@@ -103,9 +103,7 @@ class HomePage extends React.Component {
                             </ul>
                             <form class="form-inline my-2 my-lg-0">
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search for user" aria-label="Search"> </input>
-                                <Button variant="primary" block size="sm" type="submit" onClick={this.handleLogOutSubmit}>
-                                    Search
-                                </Button>
+                                <button class="btn btn-outline-success my-2 my-sm-0" onClick={this.handleLogOutSubmit}>Search</button>
                             </form>
                         </div>
                     </nav>
