@@ -91,9 +91,10 @@ export default class ProfilePage extends React.Component {
 
         return (
             <div>
-                <nav aria-label="breadcrumb" class="navColor">
-                    <ol> <li aria-current="page"><Link to="/">Home</Link> </li>
-                        <li aria-current="page">User Profile</li>
+                <nav aria-label="breadcrumb" class="navColor" >
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page"><Link to="/">Home</Link> </li>
+                        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
                     </ol>
                 </nav>
                 <div class="row gutters-sm">
