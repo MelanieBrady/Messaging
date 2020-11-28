@@ -16,6 +16,6 @@
     }
 
     li {
-        display: inline;
+        float: right; 
     }
 }
