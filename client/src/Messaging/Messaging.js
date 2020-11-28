@@ -35,7 +35,8 @@ class Messaging extends React.Component {
         this.setState({ from });
         this.setState({ chatRoomName });
 
-        this.socket = io(config[process.env.NODE_ENV].endpoint);
+        //        this.socket = io(config[process.env.NODE_ENV].endpoint);
+        this.socket = io('http://3.135.218.245:5000');
 
         this.socket.emit('join', { chatRoomName }, (msg) => {
             console.log(msg);
