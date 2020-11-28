@@ -71,7 +71,7 @@ class HomePage extends React.Component {
                     <Form class="form-inline" onSubmit={this.handleUsernameSearchSubmit}>
                         <Button variant="primary" size="sm" type="submit"> My Profile </Button>
                         <Button variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
-                        <Button variant="secondary" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
+                        <Button variant="secondary" size="sm" color="black" onClick={this.handleLogOutSubmit}> Log Out </Button>
 
                         <Form.Group controlId="formUsernameSearch">
                             <Form.Control type="" placeholder="Search for username..."
