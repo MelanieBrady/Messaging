@@ -73,13 +73,13 @@ class HomePage extends React.Component {
                             <Form.Control type="" placeholder="Search for Username"
                                 onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
                         </Form.Group>
-                        <Button variant="primary" block size="sm" type="submit">
+                        <Button variant="primary" size="sm" type="submit">
                             Search
                         </Button>
-                        <Button variant="secondary" block size="sm" onClick={this.handlePasswordReset}>
+                        <Button variant="secondary" size="sm" onClick={this.handlePasswordReset}>
                             Reset Password
                         </Button>
-                        <Button variant="secondary" block size="sm" onClick={this.handleLogOutSubmit}>
+                        <Button variant="secondary" size="sm" onClick={this.handleLogOutSubmit}>
                             Log Out
                         </Button>
                     </Form>
