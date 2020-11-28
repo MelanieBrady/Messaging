@@ -13,7 +13,7 @@
         padding: 0;
         overflow: hidden;
         background-color: #333;
-        padding: 10px 12px;
+        padding: 8px 10px;
         text-align: center;
     }
 
@@ -22,8 +22,8 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: lightseagreen;
-        padding: 10px 12px;
+        background-color: rgba(187, 77, 14, 0.788);
+        padding: 8px 10px;
         text-align: center;
     }
 
