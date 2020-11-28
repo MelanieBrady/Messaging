@@ -71,7 +71,7 @@ class HomePage extends React.Component {
                     <Form onSubmit={this.handleUsernameSearchSubmit}>
                         <Button variant="primary" size="sm" type="submit"> My Profile </Button>
 
-                        <Form.Group controlId="formUsernameSearch" class="form-row">
+                        <Form.Group controlId="formUsernameSearch" class="form-inline my-2 my-lg-0">
                             <Form.Control type="" placeholder="Search for username..."
                                 onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
                         </Form.Group>
