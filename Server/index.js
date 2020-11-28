@@ -31,22 +31,15 @@ app.use(require('./controllers'));
 
 io.on('connection', (socket) => {
 
-    socket.on('join', function (data) {
+    socket.on('join', async (data, callback) => {
         socket.join(data.chatRoomName); // We are using room of socket io
+        const messages = await Message.find({ chatRoomName: data.chatRoomName }).sort({ createdAt: -1 }).limit(10);
+        //console.log(messages);
+        callback(messages);
+        //socket.emit('init');
     });
 
-    socket.on('init', function (data) {
-        console.log('init!');
-        console.log(data.chatRoomName);
-        // Get the last 10 messages from the database.
-        Message.find({ chatRoomName: data.chatRoomName }).sort({ createdAt: -1 }).limit(10).exec((err, messages) => {
-            if (err) return console.error(err);
-            console.log(messages);
-            // Send the last messages to the user.
-            socket.to('init', messages);
-            //socket.to(data.chatRoomName).emit('init', messages);
-        });
-    });
+
 
     // Listen to connected users for a new message.
     socket.on('message', (msg) => {

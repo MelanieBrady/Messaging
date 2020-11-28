@@ -14,16 +14,28 @@ class HomePage extends React.Component {
         this.state = {
             usernameSearch: "",
             usernameSearchSubmitted: false,
+            loggedIn: false,
         }
     }
+
     handleUsernameSearchSubmit = (event) => {
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
     }
 
-    render() {
-        if (localStorage.getItem('loggedIn')) {
+    componentDidMount() {
+        const loggedIn = localStorage.getItem('loggedIn');
+        console.log(loggedIn);
+        if (loggedIn) {
+            this.setState({ loggedIn: true });
+        }
+    }
 
+    render() {
+
+        if (this.state.loggedIn) {
+
+            // Add more to the logged in 
             if (this.state.usernameSearchSubmitted) {
                 return (
                     <Redirect to={`/profile/${this.state.usernameSearch}`} />
@@ -43,20 +55,22 @@ class HomePage extends React.Component {
                     </Form>
                 </div>
             );
-        }
-        return (
-            <div>
-                <p>this is the home page</p>
-                <div className="menu">
-                    <ul>
-                        <li> <Link to="/login">this is a link to the login page</Link> </li>
-                        <li> <Link to="/register">this is a link to the register page</Link> </li>
-                        <li> <Link to="/profile/test">this is a link to the test page</Link> </li>
 
-                    </ul>
+        } else {
+            return (
+                <div>
+                    <p>this is the home page</p>
+                    <div className="menu">
+                        <ul>
+                            <li> <Link to="/login">this is a link to the login page</Link> </li>
+                            <li> <Link to="/register">this is a link to the register page</Link> </li>
+                            <li> <Link to="/profile/test">this is a link to the test page</Link> </li>
+
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 };
 

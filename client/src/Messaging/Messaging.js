@@ -1,10 +1,8 @@
 import React from 'react';
 import config from '../config';
 import io from 'socket.io-client';
-
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-
 import BottomBar from './BottomBar';
 import './Messaging.css';
 
@@ -39,17 +37,24 @@ class Messaging extends React.Component {
 
         this.socket = io(config[process.env.NODE_ENV].endpoint);
 
-        this.socket.emit('join', { chatRoomName });
-
-        // Load the last 10 messages in the window.
-        this.socket.emit('init', { chatRoomName }, (msg) => {
-            console.log(msgReversed);
-
+        this.socket.emit('join', { chatRoomName }, (msg) => {
+            console.log(msg);
             let msgReversed = msg.reverse();
+            console.log(msgReversed);
             this.setState((state) => ({
                 chat: [...state.chat, ...msgReversed],
             }), this.scrollToBottom);
         });
+
+        // Load the last 10 messages in the window.
+        // this.socket.on('init', { chatRoomName }, (msg) => {
+        //     console.log('init within client');
+        //     let msgReversed = msg.reverse();
+        //     console.log(msgReversed);
+        //     this.setState((state) => ({
+        //         chat: [...state.chat, ...msgReversed],
+        //     }), this.scrollToBottom);
+        // });
 
         // Update the chat if a new message is broadcasted.
         this.socket.on('push', (msg) => {
@@ -106,7 +111,7 @@ class Messaging extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App" >
                 <Paper id="chat" elevation={3}>
                     {this.state.chat.map((el, index) => {
                         return (
