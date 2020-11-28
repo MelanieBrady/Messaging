@@ -6,6 +6,7 @@ import HomePage from './Home/Homepage';
 import Register from './Register/Register';
 import Messaging from './Messaging/Messaging';
 import ProfilePage from './Profile/ProfilePage';
+import ResetPassword from './ResetPassword/ResetPassword';
 
 import {
   Route,
@@ -26,6 +27,7 @@ class App extends React.Component {
               <Route exact path='/register' component={Register} />
               <Route exact path='/messaging/:username' component={Messaging} />
               <Route exact path='/profile/:username' component={ProfilePage} />
+              <Route exact path='/reset' component={ResetPassword} />
               <Route exact path='/' component={HomePage} />
             </Switch>
           </div>

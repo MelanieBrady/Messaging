@@ -31,12 +31,18 @@ class HomePage extends React.Component {
         }
     }
 
+    // Allows for users to log out!
     handleLogOutSubmit = (event) => {
         this.setState({ loggedIn: false });
         localStorage.setItem('loggedIn', false);
         localStorage.setItem('token', null);
         localStorage.setItem('username', null);
     }
+
+    // Allows for the user to reset password
+    // handlePasswordReset = () => {
+
+    // }
 
     render() {
 
@@ -58,7 +64,10 @@ class HomePage extends React.Component {
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
-                        <Button block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
+                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
+                            Reset Password
+                        </Button>
+                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
                             Log Out
                         </Button>
                     </Form>
