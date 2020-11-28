@@ -26,6 +26,14 @@ const User = mongoose.Schema({
         required: true,
         unique: true,
     },
+    description: {
+        type: String,
+        required: true,
+    },
+    city: {
+        type: String,
+        required: true,
+    },
     friendsList: {
         type: Array,
         default: [],

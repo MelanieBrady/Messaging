@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useLocation, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-import {
-    Link,
-} from 'react-router-dom';
-
 import "./ProfilePage.css";
+
 
 export default class ProfilePage extends React.Component {
     constructor(props) {

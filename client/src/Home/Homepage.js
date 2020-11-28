@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 class HomePage extends React.Component {
+    //description, city, friendslist
 
     constructor(props) {
         super(props);
@@ -67,13 +68,80 @@ class HomePage extends React.Component {
 
             return (
                 <div>
+                    <Grid container component="main" className={classes.root}>
+                        <CssBaseline />
+                        <Grid item xs={false} sm={4} md={7} className={classes.image} />
+                        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                            <div className={classes.paper}>
+                                <Avatar className={classes.avatar}>
+                                    <LockOutlinedIcon />
+                                </Avatar>
+                                <Typography component="h1" variant="h5">
+                                    Sign in
+                    </Typography>
+                                <form className={classes.form} noValidate>
+                                    <TextField
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                        autoComplete="email"
+                                        autoFocus
+                                    />
+                                    <TextField
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        label="Password"
+                                        type="password"
+                                        id="password"
+                                        autoComplete="current-password"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox value="remember" color="primary" />}
+                                        label="Remember me"
+                                    />
+                                    <Button
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        color="primary"
+                                        className={classes.submit}
+                                    >
+                                        Sign In
+                      </Button>
+                                    <Grid container>
+                                        <Grid item xs>
+                                            <Link href="#" variant="body2">
+                                                Forgot password?
+                          </Link>
+                                        </Grid>
+                                        <Grid item>
+                                            <Link href="#" variant="body2">
+                                                {"Don't have an account? Sign Up"}
+                                            </Link>
+                                        </Grid>
+                                    </Grid>
+                                    <Box mt={5}>
+                                        <Copyright />
+                                    </Box>
+                                </form>
+                            </div>
+                        </Grid>
+                    </Grid>
+
                     <Form onSubmit={this.handleUsernameSearchSubmit}>
                         <Form.Group controlId="formUsernameSearch">
                             <Form.Control type="" placeholder="Search for Username"
                                 onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
                         </Form.Group>
                         <Button variant="primary" type="submit">
-                            Submit
+                            Search
                         </Button>
                         <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handlePasswordReset}>
                             Reset Password

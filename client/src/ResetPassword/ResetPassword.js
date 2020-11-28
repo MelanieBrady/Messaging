@@ -64,7 +64,7 @@ export default class ResetPassword extends React.Component {
                     <Form.Group size="lg" controlId="newPassword">
                         <Form.Label>New Password</Form.Label>
                         <Form.Control
-                            type="newPassword"
+                            type="password"
                             value={this.state.newPassword}
                             onChange={(e) => this.setState({ newPassword: e.target.value })}
                         />
