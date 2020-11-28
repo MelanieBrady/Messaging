@@ -68,21 +68,29 @@ class HomePage extends React.Component {
 
             return (
                 <div>
-                    <Form onSubmit={this.handleUsernameSearchSubmit}>
-                        <Form.Group controlId="formUsernameSearch">
-                            <Form.Control type="" placeholder="Search for Username"
-                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
-                            Search
+
+                    <nav aria-label="breadcrumb" class="main-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page"><Link to="/">Home</Link> </li>
+                            <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                        </ol>
+
+                        <Form onSubmit={this.handleUsernameSearchSubmit}>
+                            <Form.Group controlId="formUsernameSearch">
+                                <Form.Control type="" placeholder="Search for Username"
+                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Search
                         </Button>
-                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handlePasswordReset}>
-                            Reset Password
+                            <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handlePasswordReset}>
+                                Reset Password
                         </Button>
-                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
-                            Log Out
+                            <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
+                                Log Out
                         </Button>
-                    </Form>
+                        </Form>
+                    </nav>
                 </div>
             );
 
