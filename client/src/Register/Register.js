@@ -30,7 +30,7 @@ export default class Register extends React.Component {
 
         console.log(this.state.firstName + ' ' + this.state.lastName + ' ' + this.state.username + ' ' + this.state.password + ' ' + this.state.email);
 
-        axios.post('http://localhost:3001/register', {
+        axios.post('http://3.135.218.245:3001/register', {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             email: this.state.email,

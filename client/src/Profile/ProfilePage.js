@@ -30,7 +30,7 @@ export default class ProfilePage extends React.Component {
         console.log(localStorage.getItem('token'));
 
 
-        axios.get('http://localhost:3001/profile/' + username, {
+        axios.get('http://3.135.218.245:3001/profile/' + username, {
             headers: {
                 'x-access-token': localStorage.getItem('token')
             }
