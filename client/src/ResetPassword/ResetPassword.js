@@ -3,9 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import "./Register.css";
+import "./ResetPassword.css";
 
-export default class Register extends React.Component {
+export default class ResetPassword extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

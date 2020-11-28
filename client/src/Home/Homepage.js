@@ -64,7 +64,7 @@ class HomePage extends React.Component {
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
-                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
+                        <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handlePasswordReset}>
                             Reset Password
                         </Button>
                         <Button variant="primary" block size="sm" style={{ display: 'inline-block' }} onClick={this.handleLogOutSubmit}>
