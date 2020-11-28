@@ -18,6 +18,7 @@ export default class ProfilePage extends React.Component {
             friendsList: [],
             clickedFavoritesButton: false,
             clickedMessageButton: false,
+            loggedIn: true,
         };
     }
 
@@ -51,6 +52,11 @@ export default class ProfilePage extends React.Component {
             console.log(error);
             if (error.response && error.response.status === 404) {
                 alert('User was not found! :(');
+            } else if (error.response && error.response.status == 403) {
+                this.setState({ loggedIn: false });
+                localStorage.setItem('loggedIn', false);
+                localStorage.setItem('token', null);
+                localStorage.setItem('username', null);
             }
         });
     }
@@ -71,6 +77,13 @@ export default class ProfilePage extends React.Component {
         if (this.state.clickedMessageButton) {
             return (
                 <Redirect to={'/messaging/' + this.state.username} />
+            );
+        }
+
+
+        if (!this.state.loggedIn) {
+            return (
+                <Redirect to={'/login/'} />
             );
         }
         // Message friend 
