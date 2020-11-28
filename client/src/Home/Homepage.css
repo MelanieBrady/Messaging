@@ -33,10 +33,11 @@
         height: auto;
     }
 
-    .logo_container small img {
+    .smallLogo img {
         margin: 0 auto;
         max-width: 100px;
         height: auto;
+        text-align: left
     }
 
 }
