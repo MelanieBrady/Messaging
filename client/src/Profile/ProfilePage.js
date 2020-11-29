@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useLocation, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./ProfilePage.css";
@@ -103,7 +103,6 @@ export default class ProfilePage extends React.Component {
     }
 
     handleFavoriteButtonClick = (event) => {
-        console.log(this.state.usernameSearch);
         this.setState({ clickedFavoritesButton: true });
         event.preventDefault();
     }
@@ -135,8 +134,10 @@ export default class ProfilePage extends React.Component {
                 <Redirect to={'/login/'} />
             );
         }
-        // Message friend 
-        // deal with if friends or not button after profile is up
+
+        if (this.state.clickedFavoritesButton) {
+
+        }
 
         return (
             <div>
@@ -164,7 +165,6 @@ export default class ProfilePage extends React.Component {
                                     <div class="mt-3">
                                         <h4> {name} </h4>
                                         <h6> {this.state.username} </h6>
-                                        <h7> {this.state.email} </h7>
                                         <Button block size="sm" style={{ display: 'inline-block' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
                                         <Button block size="sm" variant="outline-primary" style={{ display: 'inline-block' }} onClick={this.handleMessageButtonClick}> Message </Button>
                                     </div>
