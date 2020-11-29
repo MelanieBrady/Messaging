@@ -1,6 +1,5 @@
 import React from 'react';
 import config from './config';
-import './App.css';
 import LoginPage from './Login/LoginPage';
 import HomePage from './Home/Homepage';
 import Home from './Home/Home';
@@ -8,6 +7,8 @@ import Register from './Register/Register';
 import Messaging from './Messaging/Messaging';
 import ProfilePage from './Profile/ProfilePage';
 import ResetPassword from './ResetPassword/ResetPassword';
+import './App.css';
+
 
 import {
   Route,
