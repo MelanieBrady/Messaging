@@ -1,9 +1,9 @@
 import React from 'react';
-import config from '../config';
-import io from 'socket.io-client';
-import Paper from '@material-ui/core/Paper';
+import { Form, Button } from 'react-bootstrap'
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import BottomBar from './BottomBar';
+import io from 'socket.io-client';
 import './Messaging.css';
 
 class Messaging extends React.Component {
@@ -46,16 +46,6 @@ class Messaging extends React.Component {
                 chat: [...state.chat, ...msgReversed],
             }), this.scrollToBottom);
         });
-
-        // Load the last 10 messages in the window.
-        // this.socket.on('init', { chatRoomName }, (msg) => {
-        //     console.log('init within client');
-        //     let msgReversed = msg.reverse();
-        //     console.log(msgReversed);
-        //     this.setState((state) => ({
-        //         chat: [...state.chat, ...msgReversed],
-        //     }), this.scrollToBottom);
-        // });
 
         // Update the chat if a new message is broadcasted.
         this.socket.on('push', (msg) => {
