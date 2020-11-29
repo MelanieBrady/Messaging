@@ -20,13 +20,13 @@ class Home extends React.Component {
         }
     }
 
-    componentDidMount() {
-        const loggedIn = JSON.parse(localStorage.getItem('loggedIn'));
-        console.log(loggedIn);
-        if (loggedIn) {
-            this.setState({ loggedIn: true });
-        }
-    }
+    // componentDidMount() {
+    //     const loggedIn = JSON.parse(localStorage.getItem('loggedIn'));
+    //     console.log(loggedIn);
+    //     if (loggedIn) {
+    //         this.setState({ loggedIn: true });
+    //     }
+    // }
 
     // Allows for users to log out!
     handleLogOutSubmit = () => {
@@ -58,7 +58,7 @@ class Home extends React.Component {
 
     render() {
 
-        if (!this.state.logged) {
+        if (!this.state.loggedIn) {
             return (
                 <Redirect to={`/login`} />
             );
