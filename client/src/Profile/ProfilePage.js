@@ -64,7 +64,6 @@ export default class ProfilePage extends React.Component {
         });
     }
 
-
     // Allows for users to log out!
     handleLogOutSubmit = (event) => {
         this.setState({ loggedIn: false });
@@ -164,6 +163,7 @@ export default class ProfilePage extends React.Component {
                                     <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" class="rounded-circle" width="150" />
                                     <div class="mt-3">
                                         <h4> {name} </h4>
+                                        <h2> {this.state.username} </h2>
                                         <p class="text-secondary mb-1">Full Stack Developer</p>
                                         <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                                         <Button block size="sm" style={{ display: 'inline-block' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
