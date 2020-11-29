@@ -65,6 +65,30 @@ export default class ProfilePage extends React.Component {
     }
 
 
+    // Allows for users to log out!
+    handleLogOutSubmit = (event) => {
+        this.setState({ loggedIn: false });
+        localStorage.setItem('loggedIn', false);
+        localStorage.setItem('token', null);
+        localStorage.setItem('username', null);
+    }
+
+    // Allows for the user to reset password
+    handlePasswordReset = (event) => {
+        event.preventDefault();
+        axios.post('http://3.135.218.245:3001/reset', {
+            username: this.state.username,
+            password: this.state.password,
+            newPassword: this.state.newPassword,
+        }).then((res) => {
+            this.setState({ loggedIn: false });
+        });
+    }
+
+    handleMyProfile = (event) => {
+        this.setState({ userViewsOwnProfile: true });
+    }
+
     handleUsernameSearchSubmit = (event) => {
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
@@ -101,7 +125,6 @@ export default class ProfilePage extends React.Component {
                 <Redirect to={`/profile/${localStorage.getItem('username')}`} />
             );
         }
-
 
         if (!this.state.loggedIn) {
             return (
