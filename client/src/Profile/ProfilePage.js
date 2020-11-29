@@ -71,11 +71,11 @@ export default class ProfilePage extends React.Component {
         localStorage.setItem('loggedIn', false);
         localStorage.setItem('token', null);
         localStorage.setItem('username', null);
+        event.preventDefault();
     }
 
     // Allows for the user to reset password
     handlePasswordReset = (event) => {
-        event.preventDefault();
         axios.post('http://3.135.218.245:3001/reset', {
             username: this.state.username,
             password: this.state.password,
@@ -83,29 +83,30 @@ export default class ProfilePage extends React.Component {
         }).then((res) => {
             this.setState({ loggedIn: false });
         });
+        event.preventDefault();
     }
 
     handleMyProfile = (event) => {
-        event.preventDefault();
         this.setState({ userViewsOwnProfile: true });
+        event.preventDefault();
     }
 
     handleUsernameSearchSubmit = (event) => {
-        event.preventDefault();
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
+        event.preventDefault();
     }
 
     handleMessageButtonClick = (event) => {
-        event.preventDefault();
         console.log(this.state.usernameSearch);
         this.setState({ clickedMessageButton: true });
+        event.preventDefault();
     }
 
     handleFavoriteButtonClick = (event) => {
-        event.preventDefault();
         console.log(this.state.usernameSearch);
         this.setState({ clickedFavoritesButton: true });
+        event.preventDefault();
     }
 
     render() {
