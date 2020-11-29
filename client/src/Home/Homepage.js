@@ -88,10 +88,10 @@ class HomePage extends React.Component {
                         <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordReset} class="right"> Reset Password </Button>
                     </ul>
                     <ul class="horizontal_SecondRow">
-                        <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
+                        <Form style={{ float: 'left' }} size="sm">
                             <Form.Control type="text" placeholder="Search for user..."
                                 onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
-                        <Button style={{ float: 'left', 'background-color': 'black', 'text-color': 'white' }} size="sm" type="submit">Search</Button>
+                        <Button style={{ float: 'left', 'background-color': 'black', 'text-color': 'white' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>Search</Button>
                     </ul>
                 </div>
             );
