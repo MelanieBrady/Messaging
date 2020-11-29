@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import BottomBar from './BottomBar';
 import io from 'socket.io-client';
+import axios from 'axios';
 import './Messaging.css';
 
 class Messaging extends React.Component {
