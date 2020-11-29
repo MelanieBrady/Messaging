@@ -163,9 +163,8 @@ export default class ProfilePage extends React.Component {
                                     <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" class="rounded-circle" width="150" />
                                     <div class="mt-3">
                                         <h4> {name} </h4>
-                                        <h2> {this.state.username} </h2>
-                                        <p class="text-secondary mb-1">Full Stack Developer</p>
-                                        <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                                        <h6> {this.state.username} </h6>
+                                        <h6> {this.state.email} </h6>
                                         <Button block size="sm" style={{ display: 'inline-block' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
                                         <Button block size="sm" variant="outline-primary" style={{ display: 'inline-block' }} onClick={this.handleMessageButtonClick}> Message </Button>
                                     </div>
@@ -174,7 +173,7 @@ export default class ProfilePage extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                {/* <div class="col-md-4">
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="row">
@@ -186,15 +185,14 @@ export default class ProfilePage extends React.Component {
                             <hr />
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Phone</h6>
-                                </div>
+                                    <h6 clas
                                 <div class="col-sm-9 text-secondary">
                                     (239) 816-9029
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div >
         );
     }
