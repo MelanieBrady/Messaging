@@ -19,6 +19,9 @@ export default class ProfilePage extends React.Component {
             clickedFavoritesButton: false,
             clickedMessageButton: false,
             loggedIn: true,
+            usernameSearch: "",
+            usernameSearchSubmitted: false,
+            userViewsOwnProfile: false,
         };
     }
 
@@ -61,6 +64,12 @@ export default class ProfilePage extends React.Component {
         });
     }
 
+
+    handleUsernameSearchSubmit = (event) => {
+        console.log(this.state.usernameSearch);
+        this.setState({ usernameSearchSubmitted: true });
+    }
+
     handleMessageButtonClick = (event) => {
         console.log(this.state.usernameSearch);
         this.setState({ clickedMessageButton: true });
@@ -77,6 +86,19 @@ export default class ProfilePage extends React.Component {
         if (this.state.clickedMessageButton) {
             return (
                 <Redirect to={'/messaging/' + this.state.username} />
+            );
+        }
+
+        // Add more to the logged in 
+        if (this.state.usernameSearchSubmitted) {
+            return (
+                <Redirect to={`/profile/${this.state.usernameSearch}`} />
+            );
+        }
+
+        if (this.state.userViewsOwnProfile) {
+            return (
+                <Redirect to={`/profile/${localStorage.getItem('username')}`} />
             );
         }
 

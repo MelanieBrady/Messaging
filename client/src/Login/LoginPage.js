@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import "./LoginPage.css";
 
-
 export default class LoginPage extends React.Component {
     constructor(props) {
         super(props);
