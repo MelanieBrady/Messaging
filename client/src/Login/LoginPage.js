@@ -43,7 +43,7 @@ export default class LoginPage extends React.Component {
         });
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
         const loggedIn = JSON.parse(localStorage.getItem('loggedIn'));
         console.log(loggedIn);
         if (loggedIn) {
