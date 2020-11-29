@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
 import { Redirect } from 'react-router-dom';
-
+import axios from 'axios';
 import "./LoginPage.css";
 
-import axios from 'axios';
 
 export default class LoginPage extends React.Component {
     constructor(props) {
