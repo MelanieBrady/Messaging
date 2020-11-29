@@ -86,20 +86,24 @@ export default class ProfilePage extends React.Component {
     }
 
     handleMyProfile = (event) => {
+        event.preventDefault();
         this.setState({ userViewsOwnProfile: true });
     }
 
     handleUsernameSearchSubmit = (event) => {
+        event.preventDefault();
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
     }
 
     handleMessageButtonClick = (event) => {
+        event.preventDefault();
         console.log(this.state.usernameSearch);
         this.setState({ clickedMessageButton: true });
     }
 
     handleFavoriteButtonClick = (event) => {
+        event.preventDefault();
         console.log(this.state.usernameSearch);
         this.setState({ clickedFavoritesButton: true });
     }
@@ -161,13 +165,8 @@ export default class ProfilePage extends React.Component {
                                         <h4> {name} </h4>
                                         <p class="text-secondary mb-1">Full Stack Developer</p>
                                         <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                                        <Button block size="sm" style={{ display: 'inline-block' }} onClick={this.handleFavoriteButtonClick}>
-                                            Favorite
-                                        </Button>
-
-                                        <Button block size="sm" variant="outline-primary" style={{ display: 'inline-block' }} onClick={this.handleMessageButtonClick}>
-                                            Message
-                                        </Button>
+                                        <Button block size="sm" style={{ display: 'inline-block' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
+                                        <Button block size="sm" variant="outline-primary" style={{ display: 'inline-block' }} onClick={this.handleMessageButtonClick}> Message </Button>
                                     </div>
                                 </div>
                             </div>
