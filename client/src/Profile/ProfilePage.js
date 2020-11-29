@@ -164,7 +164,7 @@ export default class ProfilePage extends React.Component {
                                     <div class="mt-3">
                                         <h4> {name} </h4>
                                         <h6> {this.state.username} </h6>
-                                        <h6> {this.state.email} </h6>
+                                        <h7> {this.state.email} </h7>
                                         <Button block size="sm" style={{ display: 'inline-block' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
                                         <Button block size="sm" variant="outline-primary" style={{ display: 'inline-block' }} onClick={this.handleMessageButtonClick}> Message </Button>
                                     </div>
