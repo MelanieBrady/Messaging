@@ -20,9 +20,9 @@ import {
 class App extends React.Component {
   render() {
     return (
-      <div className='App'>
+      <div class='App'>
         <Router>
-          <div className='router_stuff'>
+          <div class='router_stuff'>
             <Switch>
               <Route exact path='/login' component={LoginPage} />
               <Route exact path='/register' component={Register} />

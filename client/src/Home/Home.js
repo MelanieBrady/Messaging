@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap'
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './Home.css';
 
