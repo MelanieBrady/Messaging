@@ -20,7 +20,7 @@ class Messaging extends React.Component {
             chatRoomName: '',
             usernameSearch: "",
             usernameSearchSubmitted: false,
-            loggedIn: false,
+            loggedIn: true,
             userViewsOwnProfile: false,
         };
     }
@@ -137,6 +137,12 @@ class Messaging extends React.Component {
     }
 
     render() {
+
+        if (!this.state.loggedIn) {
+            return (
+                <Redirect to={`/`} />
+            );
+        }
 
         // Add more to the logged in 
         if (this.state.usernameSearchSubmitted) {
