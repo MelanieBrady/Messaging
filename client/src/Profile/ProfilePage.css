@@ -10,6 +10,16 @@
         background-repeat: no-repeat;
     }
     
+
+    .smallLogo img {
+        float: left;
+        margin: 0 auto;
+        max-width: 120px;
+        height: auto;
+        padding: 0px 0px;
+    }
+
+
     .main-body {
         padding: 15px;
     }
@@ -28,10 +38,6 @@
         background-clip: border-box;
         border: 0 solid rgba(0,0,0,.125);
         border-radius: .25rem;
-    }
-
-    .navColor {
-        background-color: rgb(239, 185, 185);
     }
 
     .card-body {
