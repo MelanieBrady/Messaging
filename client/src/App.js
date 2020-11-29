@@ -3,6 +3,7 @@ import config from './config';
 import './App.css';
 import LoginPage from './Login/LoginPage';
 import HomePage from './Home/Homepage';
+import Home from './Home/Home';
 import Register from './Register/Register';
 import Messaging from './Messaging/Messaging';
 import ProfilePage from './Profile/ProfilePage';
@@ -25,6 +26,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/login' component={LoginPage} />
               <Route exact path='/register' component={Register} />
+              <Route exact path='/home' component={Home} />
               <Route exact path='/messaging/:username' component={Messaging} />
               <Route exact path='/profile/:username' component={ProfilePage} />
               <Route exact path='/reset' component={ResetPassword} />

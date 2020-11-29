@@ -1,7 +1,5 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap'
-import { Redirect, Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './Homepage.css';
 
 class HomePage extends React.Component {
