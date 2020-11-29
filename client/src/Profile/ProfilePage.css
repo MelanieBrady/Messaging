@@ -9,16 +9,6 @@
         background-attachment: fixed;
         background-repeat: no-repeat;
     }
-    
-
-    .smallLogo img {
-        float: left;
-        margin: 0 auto;
-        max-width: 85px;
-        height: auto;
-        padding: 0px 0px;
-    }
-
 
     .main-body {
         padding: 15px;
