@@ -45,7 +45,7 @@ export default class ChangePassword extends React.Component {
 
 
         // Update password ask them to sign in again?
-        if (this.state.passwordUpdate || localStorage.getItem('loggedIn') === false) {
+        if (this.state.passwordUpdate || localStorage.getItem('loggedIn') === false || localStorage.getItem('username') === null) {
             return (
                 <Redirect to='login' />
             );
