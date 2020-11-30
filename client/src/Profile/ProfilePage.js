@@ -24,20 +24,20 @@ export default class ProfilePage extends React.Component {
             profileInfoFetched: false,
         };
 
-        this.fetchProfile();
+        // this.fetchProfile();
     }
 
-    // componentDidMount() {
-    //     // if (!this.state.profileInfoFetched) {
-    //     //     this.fetchProfile();
-    //     // }
-    // }
+    componentDidMount() {
+        if (!this.state.profileInfoFetched) {
+            this.fetchProfile();
+        }
+    }
 
-    // componentDidUpdate() {
-    //     // if (!this.state.profileInfoFetched) {
-    //     //     this.fetchProfile();
-    //     // }
-    // }
+    componentDidUpdate() {
+        if (!this.state.profileInfoFetched) {
+            this.fetchProfile();
+        }
+    }
 
     fetchProfile = () => {
         const username = this.props.match.params.username;
@@ -76,6 +76,8 @@ export default class ProfilePage extends React.Component {
                 localStorage.setItem('username', null);
             }
         });
+
+        this.setState({ profileInfoFetched: true });
     }
 
     // Allows for users to log out!
