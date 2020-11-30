@@ -108,7 +108,8 @@ export default class ProfilePage extends React.Component {
         axios.patch('http://3.135.218.245:3001/favorites/add/' + localStorage.getItem('username'), {
             data: {
                 usernameToAdd: this.state.username,
-            },
+            }
+        }, {
             headers: {
                 'x-access-token': localStorage.getItem('token')
             }
