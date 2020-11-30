@@ -8,5 +8,6 @@ router.use('/message', require('./message'));
 router.use('/profile', require('./profile'));
 router.use('/change', require('./change'));
 router.use('/home', require('./home'));
+router.use('/favorites', require('./favorites'));
 
 module.exports = router; 
