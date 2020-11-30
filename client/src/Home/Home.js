@@ -10,9 +10,13 @@ class Home extends React.Component {
         super(props);
 
         this.state = {
+            firstName: '',
+            lastName: '',
+            username: '',
+            createdAt: '',
+            friendsList: [],
             username: "",
             password: "",
-            newPassword: "",
             userViewsOwnProfile: false,
             usernameSearch: "",
             usernameSearchSubmitted: false,
@@ -20,15 +24,40 @@ class Home extends React.Component {
             clickedMessageButton: false,
             clickedChangePassword: false,
         }
+
+
+        this.setState({ firstName: user.firstName });
+        this.setState({ lastName: user.lastName });
+        this.setState({ username: user.username });
+        this.setState({ createdAt: user.createdAt });
+        this.setState({ friendsList: user.friendsList });
     }
 
-    // componentDidMount() {
-    //     const loggedIn = JSON.parse(localStorage.getItem('loggedIn'));
-    //     console.log(loggedIn);
-    //     if (loggedIn) {
-    //         this.setState({ loggedIn: true });
-    //     }
-    // }
+    componentDidMount() {
+        const username = localStorage.getItem('username');
+        axios.get('http://3.135.218.245:3001/profile/' + username, {
+            headers: {
+                'x-access-token': localStorage.getItem('token')
+            }
+        }).then((res) => {
+            const user = res.data.user;
+            this.setState({ firstName: user.firstName });
+            this.setState({ lastName: user.lastName });
+            this.setState({ username: user.username });
+            this.setState({ createdAt: user.createdAt });
+            this.setState({ friendsList: user.friendsList });
+        }).catch((error) => {
+            console.log(error);
+            if (error.response && error.response.status === 404) {
+                alert('User was not found! :(');
+            } else if (error.response && error.response.status === 403) {
+                this.setState({ loggedIn: false });
+                localStorage.setItem('loggedIn', false);
+                localStorage.setItem('token', null);
+                localStorage.setItem('username', null);
+            }
+        });
+    }
 
     // Allows for users to log out!
     handleLogOutSubmit = () => {
@@ -58,6 +87,8 @@ class Home extends React.Component {
     }
 
     render() {
+        const name = this.state.firstName + " " + this.state.lastName;
+
         if (this.state.clickedChangePassword) {
             return (
                 <Redirect to={'/change'} />
@@ -112,7 +143,7 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div >
             );
         }
 
