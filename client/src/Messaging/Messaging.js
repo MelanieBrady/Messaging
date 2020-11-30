@@ -154,7 +154,7 @@ class Messaging extends React.Component {
 
         if (this.state.userViewsOwnProfile) {
             return (
-                <Redirect to={`/profile/${localStorage.getItem('username')}`} />
+                <Redirect to={`/home`} />
             );
         }
 
@@ -164,7 +164,7 @@ class Messaging extends React.Component {
                     <div className="smallLogo">
                         <img alt="minimum" src="https://i.redd.it/8fhjxz0ena261.jpg" />
                     </div>
-                    <Button style={{ float: 'left' }} variant="primary" size="sm" onClick={this.handleMyProfile}> My Profile </Button>
+                    <Button style={{ float: 'left' }} type="button" variant="primary" size="sm" onClick={this.handleMyProfile}>Home</Button>
                     <Button style={{ float: 'right' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit} class="right"> Log Out </Button>
                     <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordChange} class="right"> Change Password </Button>
                 </ul>
