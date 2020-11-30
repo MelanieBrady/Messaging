@@ -20,6 +20,8 @@ router.patch('/add/:username/', tokenUtils.verifyToken, async (req, res) => {
                 success: true,
                 message: 'Already friends!',
             })
+
+            return;
         }
 
         userLoggedIn.favoritesList.push(usernameToAdd);
