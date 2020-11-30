@@ -24,13 +24,6 @@ class Home extends React.Component {
             clickedMessageButton: false,
             clickedChangePassword: false,
         }
-
-
-        this.setState({ firstName: user.firstName });
-        this.setState({ lastName: user.lastName });
-        this.setState({ username: user.username });
-        this.setState({ createdAt: user.createdAt });
-        this.setState({ friendsList: user.friendsList });
     }
 
     componentDidMount() {
