@@ -14,7 +14,7 @@ export default class ProfilePage extends React.Component {
             lastName: '',
             username: '',
             createdAt: '',
-            friendsList: [],
+            favoritesList: [],
             clickedFavoritesButton: false,
             clickedMessageButton: false,
             loggedIn: true,
@@ -30,8 +30,6 @@ export default class ProfilePage extends React.Component {
         if (!this.state.profileInfoFetched) {
             this.fetchProfile();
         }
-
-        console.log(this.state.friendsList);
     }
 
     fetchProfile = () => {
@@ -51,11 +49,11 @@ export default class ProfilePage extends React.Component {
             this.setState({ lastName: user.lastName });
             this.setState({ username: user.username });
             this.setState({ createdAt: user.createdAt });
-            this.setState({ friendsList: user.friendsList });
+            this.setState({ favoritesList: user.favoritesList });
 
             const curUser = localStorage.getItem('username');
 
-            if (this.state.friendsList.includes(curUser)) {
+            if (this.state.favoritesList.includes(curUser)) {
                 this.setState({ weAreFriendsWithThisUser: true });
             }
 
@@ -64,11 +62,6 @@ export default class ProfilePage extends React.Component {
             console.log(error);
             if (error.response && error.response.status === 404) {
                 alert('User was not found! :(');
-            } else if (error.response && error.response.status === 403) {
-                this.setState({ loggedIn: false });
-                localStorage.setItem('loggedIn', false);
-                localStorage.setItem('token', null);
-                localStorage.setItem('username', null);
             }
         });
 
@@ -121,6 +114,7 @@ export default class ProfilePage extends React.Component {
     render() {
         const name = this.state.firstName + " " + this.state.lastName;
         if (this.state.clickedFavoritesButton) {
+
         }
 
         if (this.state.clickedChangePassword) {
