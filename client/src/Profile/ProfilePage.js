@@ -104,12 +104,10 @@ export default class ProfilePage extends React.Component {
 
     handleFavoriteButtonClick = () => {
         this.setState({ clickedFavoritesButton: true });
-
-        axios.patch('http://3.135.218.245:3001/favorites/add/' + localStorage.getItem('username'), {
-            data: {
+        axios.patch('http://3.135.218.245:3001/favorites/add/' + localStorage.getItem('username'),
+            {
                 usernameToAdd: this.state.username,
-            }
-        }, {
+            }, {
             headers: {
                 'x-access-token': localStorage.getItem('token')
             }
