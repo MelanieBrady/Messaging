@@ -9,6 +9,7 @@ const router = express.Router();
 
 // For token authentication 
 router.post('/', tokenUtils.verifyToken, async (req, res) => {
+    console.log(req.body);
     const username = req.body.username;
     try {
         const user = await User.findOne({ username });
