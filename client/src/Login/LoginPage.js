@@ -50,7 +50,7 @@ export default class LoginPage extends React.Component {
         return (
             <div>
                 <div className="logo_container">
-                    <img alt="logo" src="../logo.jpg" />
+                    <img alt="minimum" src="https://i.redd.it/8fhjxz0ena261.jpg" />
                 </div>
                 <div className="Login">
                     <Form onSubmit={this.handleSubmit}>

@@ -134,7 +134,7 @@ export default class ProfilePage extends React.Component {
                 <div>
                     <ul className="horizontal_TopRow">
                         <div className="smallLogo">
-                            <img alt="logo" src="../logo.jpg" />
+                            <img alt="minimum" src="https://i.redd.it/8fhjxz0ena261.jpg" />
                         </div>
                         <Button style={{ float: 'left' }} type="button" variant="primary" size="sm" onClick={this.handleMyProfile}> My Profile </Button>
                         <Button style={{ float: 'right' }} type="button" variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
