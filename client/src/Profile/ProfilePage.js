@@ -183,8 +183,8 @@ export default class ProfilePage extends React.Component {
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md">
-                                        <h6 class="mb-10">Favorites</h6>
+                                    <div class="col-sm">
+                                        <h6 class="mb-4">Favorites</h6>
                                     </div>
                                     <div>
                                         {favorites.map(favorite => (
