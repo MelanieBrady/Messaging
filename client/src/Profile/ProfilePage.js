@@ -73,6 +73,8 @@ export default class ProfilePage extends React.Component {
         this.setState({ profileInfoFetched: true });
     }
 
+
+
     // Allows for users to log out!
     handleLogOutSubmit = () => {
         this.setState({ loggedIn: false });
@@ -103,70 +105,81 @@ export default class ProfilePage extends React.Component {
     handleFavoriteButtonClick = () => {
         this.setState({ clickedFavoritesButton: true });
 
+        axios.patch('http://3.135.218.245:3001/favorites/add/' + localStorage.getItem('username'), {
+            data: {
+                usernameToAdd: this.state.username,
+            },
+            headers: {
+                'x-access-token': localStorage.getItem('token')
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
+
     }
 
     render() {
         const name = this.state.firstName + " " + this.state.lastName;
+        if (this.state.clickedFavoritesButton) {
 
-        if (this.state.clickedChangePassword) {
-            return (
-                <Redirect to={'/change'} />
-            );
-        } else if (this.state.clickedMessageButton) {
-            return (
-                <Redirect to={'/messaging/' + this.state.username} />
-            );
-        } else if (this.state.usernameSearchSubmitted) {
-            return (
-                <Redirect to={`/profile/${this.state.usernameSearch}`} />
-            );
-        } else if (this.state.userViewsOwnProfile) {
-            return (
-                <Redirect to={`/home`} />
-            );
-        } else if (!this.state.loggedIn) {
-            return (
-                <Redirect to={'/login/'} />
-            );
-        } else if (this.state.clickedFavoritesButton) {
 
-        } else {
-            return (
-                <div>
-                    <ul className="horizontal_TopRow">
-                        <div className="smallLogo">
-                            <img alt="minimum" src="https://i.redd.it/8fhjxz0ena261.jpg" />
-                        </div>
-                        <Button style={{ float: 'left' }} type="button" variant="primary" size="sm" onClick={this.handleMyProfile}>Home</Button>
-                        <Button style={{ float: 'right' }} type="button" variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
-                        <Button style={{ float: 'right' }} type="button" variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
-                    </ul>
-                    <ul className="horizontal_SecondRow">
-                        <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
-                            <Form.Control type="text" placeholder="Search for user..."
-                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
-                        <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>
-                    </ul>
+            if (this.state.clickedChangePassword) {
+                return (
+                    <Redirect to={'/change'} />
+                );
+            } else if (this.state.clickedMessageButton) {
+                return (
+                    <Redirect to={'/messaging/' + this.state.username} />
+                );
+            } else if (this.state.usernameSearchSubmitted) {
+                return (
+                    <Redirect to={`/profile/${this.state.usernameSearch}`} />
+                );
+            } else if (this.state.userViewsOwnProfile) {
+                return (
+                    <Redirect to={`/home`} />
+                );
+            } else if (!this.state.loggedIn) {
+                return (
+                    <Redirect to={'/login/'} />
+                );
+            } else {
+                return (
+                    <div>
+                        <ul className="horizontal_TopRow">
+                            <div className="smallLogo">
+                                <img alt="minimum" src="https://i.redd.it/8fhjxz0ena261.jpg" />
+                            </div>
+                            <Button style={{ float: 'left' }} type="button" variant="primary" size="sm" onClick={this.handleMyProfile}>Home</Button>
+                            <Button style={{ float: 'right' }} type="button" variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
+                            <Button style={{ float: 'right' }} type="button" variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
+                        </ul>
+                        <ul className="horizontal_SecondRow">
+                            <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
+                                <Form.Control type="text" placeholder="Search for user..."
+                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
+                            <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>
+                        </ul>
 
-                    <div class="row gutters-sm">
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" width="150" />
-                                        <div class="mt-3">
-                                            <h4> {name} </h4>
-                                            <h6> {this.state.username} </h6>
-                                            <Button block size="sm" type="button" style={{ display: 'inlineBlock' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
-                                            <Button block size="sm" type="button" variant="outlinePrimary" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}> Message </Button>
+                        <div class="row gutters-sm">
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column align-items-center text-center">
+                                            <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" width="150" />
+                                            <div class="mt-3">
+                                                <h4> {name} </h4>
+                                                <h6> {this.state.username} </h6>
+                                                <Button block size="sm" type="button" style={{ display: 'inlineBlock' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
+                                                <Button block size="sm" type="button" variant="outlinePrimary" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}> Message </Button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div >
-            );
+                    </div >
+                );
+            }
         }
     }
-}
