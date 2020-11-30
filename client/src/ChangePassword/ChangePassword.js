@@ -22,9 +22,6 @@ export default class ChangePassword extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
-        console.log(this.state.username + ' ' + this.state.password + ' ' + this.state.newPassword);
-
         axios.post('http://3.135.218.245:3001/change',
             {
                 username: localStorage.getItem('username'),
@@ -37,14 +34,12 @@ export default class ChangePassword extends React.Component {
         }).then((res) => {
             console.log(res);
             this.setState({ passwordUpdate: true });
-        }).catch((error) => {
-            console.log(error);
         });
-
     }
 
 
     render() {
+
         if (this.state.passwordUpdate) {
             this.setState({ loggedIn: false });
             localStorage.setItem('loggedIn', false);
@@ -52,7 +47,7 @@ export default class ChangePassword extends React.Component {
             localStorage.setItem('username', null);
 
             return (
-                <Redirect to='login' />
+                <Redirect to='/login' />
             );
         }
 
