@@ -78,7 +78,7 @@ class Home extends React.Component {
                         </div>
                         <Button style={{ float: 'left' }} variant="primary" size="sm" onClick={this.handleMyProfile}> My Profile </Button>
                         <Button style={{ float: 'right' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
-                        <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordReset} > Reset Password </Button>
+                        <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordChange} class="right"> Change Password </Button>
                     </ul>
                     <ul className="horizontal_SecondRow">
                         <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
