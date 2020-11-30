@@ -22,9 +22,8 @@ export default class ProfilePage extends React.Component {
             usernameSearchSubmitted: false,
             userViewsOwnProfile: false,
             profileInfoFetched: false,
+            clickedResetPassword: false,
         };
-
-        // this.fetchProfile();
     }
 
     componentDidMount() {
@@ -84,13 +83,7 @@ export default class ProfilePage extends React.Component {
 
     // Allows for the user to reset password
     handlePasswordReset = () => {
-        axios.post('http://3.135.218.245:3001/reset', {
-            username: this.state.username,
-            password: this.state.password,
-            newPassword: this.state.newPassword,
-        }).then((res) => {
-            this.setState({ loggedIn: false });
-        });
+        this.setState({ clickedResetPassword: true });
     }
 
     handleMyProfile = () => {
@@ -114,7 +107,11 @@ export default class ProfilePage extends React.Component {
     render() {
         const name = this.state.firstName + " " + this.state.lastName;
 
-        if (this.state.clickedMessageButton) {
+        if (this.state.clickedResetPassword) {
+            return (
+                <Redirect to={'/reset'} />
+            );
+        } else if (this.state.clickedMessageButton) {
             return (
                 <Redirect to={'/messaging/' + this.state.username} />
             );
