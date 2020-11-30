@@ -22,7 +22,7 @@ router.post('/', tokenUtils.verifyToken, async (req, res) => {
             if (passwordMatches) {
                 const salt = await bcrypt.genSalt(10);
                 const password = await bcrypt.hash(req.body.newPassword, salt);
-                mongoose.user.update({ password });
+                user.password = password;
 
                 await user.save();
                 res.status(200).send({ success: true, message: 'Password update', token });
