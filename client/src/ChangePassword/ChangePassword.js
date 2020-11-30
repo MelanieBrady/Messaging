@@ -21,6 +21,8 @@ export default class ChangePassword extends React.Component {
     }
 
     handleSubmit = (event) => {
+        event.preventDefault();
+
         console.log(this.state.username + ' ' + this.state.password + ' ' + this.state.newPassword);
 
         axios.post('http://3.135.218.245:3001/change',
