@@ -190,7 +190,7 @@ export default class ProfilePage extends React.Component {
 
                                         <div>
                                             {favorites.map(favorite => (
-                                                <div class="col-md-10 text-secondary"> <p> {favorite} </p></div>
+                                                <div class="col-md text-secondary"> <p> {favorite} </p></div>
                                             ))}
                                         </div>
                                     </div>
