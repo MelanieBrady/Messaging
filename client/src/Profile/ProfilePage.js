@@ -138,7 +138,7 @@ export default class ProfilePage extends React.Component {
                         <Button style={{ float: 'right' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
                         <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
                     </ul>
-                    <ul class="horizontal_SecondRow">
+                    <ul className="horizontal_SecondRow">
                         <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
                             <Form.Control type="text" placeholder="Search for user..."
                                 onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
