@@ -33,12 +33,13 @@ export default class ChangePassword extends React.Component {
             }
         }).then((res) => {
             console.log(res);
-            this.setState({ passwordUpdate: true });
-            this.setState({ loggedIn: false });
-            localStorage.setItem('loggedIn', false);
-            localStorage.setItem('token', null);
-            localStorage.setItem('username', null);
         });
+
+        this.setState({ passwordUpdate: true });
+        this.setState({ loggedIn: false });
+        localStorage.setItem('loggedIn', false);
+        localStorage.setItem('token', null);
+        localStorage.setItem('username', null);
     }
 
 
