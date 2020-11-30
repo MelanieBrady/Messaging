@@ -28,7 +28,31 @@ router.patch('/add/:username/', tokenUtils.verifyToken, async (req, res) => {
             message: 'User not found',
         })
     }
+});
 
+// End point, handler of request and return response
+router.patch('/remove/:username/', tokenUtils.verifyToken, async (req, res) => {
+    const usernameLoggedIn = req.params.username;
+    const usernameToRemove = req.body.usernameToRemove;
+
+    const userLoggedIn = await User.findOne({ username: usernameLoggedIn });
+    const userToRemove = await User.findOne({ username: usernameToRemove });
+
+    if (userLoggedIn && userToRemove) {
+        userLoggedIn.favoritesList = userLoggedIn.favoritesList.filter(element => element !== usernameToRemove);
+        await userLoggedIn.save();
+
+        res.status(200).send({
+            success: true,
+            message: 'User removed from favorites!',
+            user: userLoggedIn,
+        })
+    } else {
+        res.status(404).send({
+            success: false,
+            message: 'User not found',
+        })
+    }
 });
 
 module.exports = router; 
