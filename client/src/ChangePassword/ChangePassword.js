@@ -21,31 +21,28 @@ export default class ChangePassword extends React.Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
         console.log(this.state.username + ' ' + this.state.password + ' ' + this.state.newPassword);
 
         axios.post('http://3.135.218.245:3001/change', {
             username: localStorage.getItem('username'),
             password: this.state.password,
+            newPassword: this.state.newPassword,
 
         }).then((res) => {
             console.log(res);
             this.setState({ passwordUpdate: true });
         });
 
+    }
+
+    render() {
+
         if (this.state.passwordUpdate) {
             this.setState({ loggedIn: false });
             localStorage.setItem('loggedIn', false);
             localStorage.setItem('token', null);
             localStorage.setItem('username', null);
-        }
-    }
 
-    render() {
-
-
-        // Update password ask them to sign in again?
-        if (this.state.passwordUpdate || localStorage.getItem('loggedIn') === false || localStorage.getItem('username') === null) {
             return (
                 <Redirect to='login' />
             );

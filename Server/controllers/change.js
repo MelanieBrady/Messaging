@@ -11,11 +11,12 @@ const router = express.Router();
 router.post('/', tokenUtils.verifyToken, async (req, res) => {
     console.log(req.body);
     const username = req.body.username;
+    const prevPassword = req.body.password;
+
     try {
         const user = await User.findOne({ username });
 
         if (user) {
-            const prevPassword = req.body.password;
             const passwordMatches = await bcrypt.compare(prevPassword, user.password);
 
             if (passwordMatches) {
