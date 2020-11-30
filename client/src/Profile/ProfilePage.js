@@ -23,19 +23,21 @@ export default class ProfilePage extends React.Component {
             userViewsOwnProfile: false,
             profileInfoFetched: false,
         };
+
+        this.fetchProfile();
     }
 
-    componentDidMount() {
-        if (!this.state.profileInfoFetched && (userViewsOwnProfile || usernameSearchSubmitted)) {
-            this.fetchProfile();
-        }
-    }
+    // componentDidMount() {
+    //     // if (!this.state.profileInfoFetched) {
+    //     //     this.fetchProfile();
+    //     // }
+    // }
 
-    componentDidUpdate() {
-        if (!this.state.profileInfoFetched && (userViewsOwnProfile || usernameSearchSubmitted)) {
-            this.fetchProfile();
-        }
-    }
+    // componentDidUpdate() {
+    //     // if (!this.state.profileInfoFetched) {
+    //     //     this.fetchProfile();
+    //     // }
+    // }
 
     fetchProfile = () => {
         const username = this.props.match.params.username;
