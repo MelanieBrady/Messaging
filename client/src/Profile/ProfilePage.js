@@ -51,6 +51,7 @@ export default class ProfilePage extends React.Component {
             this.setState({ createdAt: user.createdAt });
             this.setState({ favoritesList: user.favoritesList });
 
+            console.log(this.state.favoritesList);
             const curUser = localStorage.getItem('username');
 
             if (this.state.favoritesList.includes(curUser)) {
