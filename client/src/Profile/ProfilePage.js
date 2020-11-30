@@ -21,6 +21,7 @@ export default class ProfilePage extends React.Component {
             usernameSearch: "",
             usernameSearchSubmitted: false,
             userViewsOwnProfile: false,
+            profileInfoFetched: false,
         };
     }
 
@@ -29,7 +30,9 @@ export default class ProfilePage extends React.Component {
     }
 
     componentDidUpdate() {
-        this.fetchProfile();
+        if (!this.state.profileInfoFetched) {
+            this.fetchProfile();
+        }
     }
 
     fetchProfile = () => {
@@ -69,6 +72,8 @@ export default class ProfilePage extends React.Component {
                 localStorage.setItem('username', null);
             }
         });
+
+        this.setState({ profileInfoFetched: true });
     }
 
     // Allows for users to log out!
