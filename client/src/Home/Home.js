@@ -95,10 +95,6 @@ class Home extends React.Component {
             return (
                 <Redirect to={`/profile/${this.state.usernameSearch}`} />
             );
-        } else if (this.state.userViewsOwnProfile) {
-            return (
-                <Redirect to={`/home`} />
-            );
         } else if (this.state.clickedMessageButton) {
             return (
                 <Redirect to={'/messaging/' + this.state.username} />
