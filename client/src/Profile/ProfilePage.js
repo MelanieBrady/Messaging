@@ -33,12 +33,6 @@ export default class ProfilePage extends React.Component {
         }
     }
 
-    static getDerivedStateFromProps(props, state) {
-        if (!this.state.profileInfoFetched) {
-            this.fetchProfile();
-        }
-    }
-
     fetchProfile = () => {
         const username = this.props.match.params.username;
         console.log(username);
