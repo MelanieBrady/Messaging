@@ -148,7 +148,7 @@ export default class ProfilePage extends React.Component {
                     </div>
                     <Button style={{ float: 'left' }} type="button" variant="primary" size="sm" onClick={this.handleMyProfile}>Home</Button>
                     <Button style={{ float: 'right' }} type="button" variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
-                    <Button style={{ float: 'right' }} type="button" variant="secondary" size="sm" onClick={this.handlePasswordReset}> Reset Password </Button>
+                    <Button style={{ float: 'right' }} type="button" variant="secondary" size="sm" onClick={this.handlePasswordChange}> Reset Password </Button>
                 </ul>
                 <ul className="horizontal_SecondRow">
                     <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
