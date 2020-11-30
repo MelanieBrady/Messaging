@@ -21,7 +21,7 @@ export default class ChangePassword extends React.Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         axios.post('http://3.135.218.245:3001/change',
             {
                 username: localStorage.getItem('username'),
@@ -34,18 +34,17 @@ export default class ChangePassword extends React.Component {
         }).then((res) => {
             console.log(res);
             this.setState({ passwordUpdate: true });
+            this.setState({ loggedIn: false });
+            localStorage.setItem('loggedIn', false);
+            localStorage.setItem('token', null);
+            localStorage.setItem('username', null);
         });
     }
 
 
     render() {
 
-        if (this.state.passwordUpdate) {
-            this.setState({ loggedIn: false });
-            localStorage.setItem('loggedIn', false);
-            localStorage.setItem('token', null);
-            localStorage.setItem('username', null);
-
+        if (this.state.passwordUpdate || localStorage.getItem('username') === null) {
             return (
                 <Redirect to='/login' />
             );
