@@ -32,11 +32,19 @@ export default class ResetPassword extends React.Component {
             console.log(res);
             this.setState({ passwordUpdate: true });
         });
+
+        if (this.state.passwordUpdate) {
+            this.setState({ loggedIn: false });
+            localStorage.setItem('loggedIn', false);
+            localStorage.setItem('token', null);
+            localStorage.setItem('username', null);
+        }
     }
 
     render() {
         // Update password ask them to sign in again?
         if (this.state.passwordUpdate) {
+
             return (
                 <Redirect to='login' />
             );
