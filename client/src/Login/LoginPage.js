@@ -28,11 +28,11 @@ export default class LoginPage extends React.Component {
             username: this.state.username,
             password: this.state.password,
         }).then((res) => {
-            this.setState({ loggedIn: true });
-            localStorage.setItem('loggedIn', true);
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('username', this.state.username);
-            console.log(localStorage.getItem('username'));
+            this.setState({ loggedIn: true }, () => {
+                localStorage.setItem('loggedIn', true);
+                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('username', this.state.username);
+            });
         }).catch((error) => {
             console.log(error);
             if (error.response && error.response.status === 401) {
