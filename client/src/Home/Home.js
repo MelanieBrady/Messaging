@@ -14,7 +14,7 @@ class Home extends React.Component {
             lastName: '',
             username: '',
             createdAt: '',
-            friendsList: [],
+            favoritesList: [],
             password: "",
             userViewsOwnProfile: false,
             usernameSearch: "",
@@ -75,6 +75,7 @@ class Home extends React.Component {
 
     render() {
         const name = this.state.firstName + " " + this.state.lastName;
+        const friends = this.state.friendsList;
 
         if (this.state.clickedChangePassword) {
             return (
@@ -126,7 +127,21 @@ class Home extends React.Component {
                             </div>
                         </div>
                     </div>
-                </div >
+                    <div class="col-md-8">
+                        <div class="col-md-8">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Favorites</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary"> this.s</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div >
+                </div>
             );
         }
 

@@ -89,3 +89,5 @@ export default class ChangePassword extends React.Component {
         );
     }
 }
+
+export default ChangePassword;
