@@ -129,7 +129,7 @@ class Home extends React.Component {
                                         <div class="mt-3">
                                             <h4> {name} </h4>
                                             <h6> {this.state.username} </h6>
-                                            <Button block size="sm" type="button" variant="outlinePrimary" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}> Message </Button>
+                                            <Button block size="sm" type="button" variant="primary" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}>Talk with yourself</Button>
                                         </div>
                                     </div>
                                 </div>
