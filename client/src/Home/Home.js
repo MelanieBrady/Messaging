@@ -17,6 +17,7 @@ class Home extends React.Component {
             usernameSearch: "",
             usernameSearchSubmitted: false,
             loggedIn: true,
+            clickedMessageButton: false,
             clickedChangePassword: false,
         }
     }
@@ -51,6 +52,11 @@ class Home extends React.Component {
         this.setState({ clickedChangePassword: true });
     }
 
+    handleMessageButtonClick = () => {
+        console.log(this.state.usernameSearch);
+        this.setState({ clickedMessageButton: true });
+    }
+
     render() {
         if (this.state.clickedChangePassword) {
             return (
@@ -69,6 +75,10 @@ class Home extends React.Component {
             return (
                 <Redirect to={`/profile/${localStorage.getItem('username')}`} />
             );
+        } else if (this.state.clickedMessageButton) {
+            return (
+                <Redirect to={'/messaging/' + this.state.username} />
+            );
         } else {
             return (
                 <div>
@@ -86,6 +96,22 @@ class Home extends React.Component {
                                 onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </Form>
                         <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>
                     </ul>
+                    <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column align-items-center text-center">
+                                        <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" width="150" />
+                                        <div class="mt-3">
+                                            <h4> {name} </h4>
+                                            <h6> {this.state.username} </h6>
+                                            <Button block size="sm" type="button" variant="outlinePrimary" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}> Message </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             );
         }
