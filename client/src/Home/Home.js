@@ -107,8 +107,8 @@ class Home extends React.Component {
                         <form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
                             <FormGroup role='form'>
                                 <Form.Control type="text" placeholder="Search for user..."
-                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </FormGroup> </form>
-                        <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>
+                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </FormGroup>
+                            <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>  </form>
                     </ul>
                     <div class="row gutters-sm">
                         <div class="col-md-4 mb-3">
