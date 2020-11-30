@@ -53,7 +53,7 @@ export default class ResetPassword extends React.Component {
         return (
             <div>
                 <div className="logo_container">
-                    <img alt="logo" src="../logo.jpg" />
+                    <img alt="logo" src="../../logo.jpg" />
                 </div>
                 <div className="Reset">
                     <Form onSubmit={this.handleSubmit}>
