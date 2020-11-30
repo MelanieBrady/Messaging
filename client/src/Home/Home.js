@@ -15,7 +15,6 @@ class Home extends React.Component {
             username: '',
             createdAt: '',
             friendsList: [],
-            username: "",
             password: "",
             userViewsOwnProfile: false,
             usernameSearch: "",
