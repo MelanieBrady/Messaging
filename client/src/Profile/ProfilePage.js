@@ -145,13 +145,13 @@ export default class ProfilePage extends React.Component {
                         <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>
                     </ul>
 
-                    <div className="row gutters-sm">
-                        <div className="col-md-4 mb-3">
-                            <div className="card">
-                                <div className="card-body">
-                                    <div className="d-flex flex-column align-items-center text-center">
+                    <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column align-items-center text-center">
                                         <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" class="rounded-circle" width="150" />
-                                        <div className="mt-3">
+                                        <div class="mt-3">
                                             <h4> {name} </h4>
                                             <h6> {this.state.username} </h6>
                                             <Button block size="sm" style={{ display: 'inlineBlock' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
