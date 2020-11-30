@@ -178,23 +178,25 @@ export default class ProfilePage extends React.Component {
                 </div>
 
 
-
-                <div class="col-md-4 mb-3" style={{ float: 'left' }} >
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md">
-                                <h6 class="mb-10">Favorites</h6>
-                            </div>
-                            <div>
-                                {favorites.map(favorite => (
-                                    <div class="col-md-10 text-secondary"> <p> {favorite} </p></div>
-                                ))}
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3" style={{ float: 'left' }} >
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <h6 class="mb-10">Favorites</h6>
+                                    </div>
+                                    <div>
+                                        {favorites.map(favorite => (
+                                            <div class="col-md-10 text-secondary"> <p> {favorite} </p></div>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         );
     }
 }
