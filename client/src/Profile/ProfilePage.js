@@ -30,6 +30,8 @@ export default class ProfilePage extends React.Component {
         if (!this.state.profileInfoFetched) {
             this.fetchProfile();
         }
+
+        console.log(this.state.friendsList);
     }
 
     fetchProfile = () => {

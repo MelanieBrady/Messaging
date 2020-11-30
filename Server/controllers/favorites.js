@@ -14,6 +14,14 @@ router.patch('/add/:username/', tokenUtils.verifyToken, async (req, res) => {
     const userToAdd = await User.findOne({ username: usernameToAdd });
 
     if (userLoggedIn && userToAdd) {
+
+        if (userLoggedIn.favoritesList.includes(usernameToAdd)) {
+            res.status(200).send({
+                success: true,
+                message: 'Already friends!',
+            })
+        }
+
         userLoggedIn.favoritesList.push(usernameToAdd);
         await userLoggedIn.save();
 
