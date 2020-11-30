@@ -104,11 +104,11 @@ class Home extends React.Component {
                         <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordChange} class="right"> Change Password </Button>
                     </ul>
                     <ul className="horizontal_SecondRow">
-                        <form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
+                        <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
                             <FormGroup role='form'>
                                 <Form.Control type="text" placeholder="Search for user..."
-                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </FormGroup>
-                            <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>  </form>
+                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
+                                <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>  </FormGroup> </Form>
                     </ul>
                     <div class="row gutters-sm">
                         <div class="col-md-4 mb-3">
