@@ -10,7 +10,7 @@ router.patch('/add/:username/', tokenUtils.verifyToken, async (req, res) => {
     const userToAdd = req.body.usernameToAdd;
     const userLoggedIn = req.params.username;
 
-    const user = await User.findOne({ userLoggedIn });
+    const user = await User.findOne({ username: userLoggedIn });
 
     if (user) {
         user.favoritesList.push(userToAdd);
