@@ -7,7 +7,7 @@ import Home from './Home/Home';
 import Register from './Register/Register';
 import Messaging from './Messaging/Messaging';
 import ProfilePage from './Profile/ProfilePage';
-import ResetPassword from './ResetPassword/ResetPassword';
+import ChangePassword from './ChangePassword/ChangePassword';
 
 import {
   Route,
@@ -29,7 +29,7 @@ class App extends React.Component {
               <Route exact path='/home' component={Home} />
               <Route exact path='/messaging/:username' component={Messaging} />
               <Route exact path='/profile/:username' component={ProfilePage} />
-              <Route exact path='/reset' component={ResetPassword} />
+              <Route exact path='/change' component={ChangePassword} />
               <Route exact path='/' component={HomePage} />
             </Switch>
           </div>

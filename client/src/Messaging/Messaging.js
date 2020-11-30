@@ -22,6 +22,7 @@ class Messaging extends React.Component {
             usernameSearchSubmitted: false,
             loggedIn: true,
             userViewsOwnProfile: false,
+            clickedChangePassword: false,
         };
     }
 
@@ -115,16 +116,10 @@ class Messaging extends React.Component {
     }
 
     // Allows for the user to reset password
-    handlePasswordReset = (event) => {
-        event.preventDefault();
-        axios.post('http://3.135.218.245:3001/reset', {
-            username: this.state.username,
-            password: this.state.password,
-            newPassword: this.state.newPassword,
-        }).then((res) => {
-            this.setState({ loggedIn: false });
-        });
+    handlePasswordChange = () => {
+        this.setState({ clickedChangePassword: true });
     }
+
 
     handleMyProfile = (event) => {
         this.setState({ userViewsOwnProfile: true });
@@ -137,6 +132,12 @@ class Messaging extends React.Component {
     }
 
     render() {
+
+        if (this.state.clickedChangePassword) {
+            return (
+                <Redirect to={'/change'} />
+            );
+        }
 
         if (!this.state.loggedIn) {
             return (

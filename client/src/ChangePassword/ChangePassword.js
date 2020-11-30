@@ -3,9 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import "./ResetPassword.css";
+import "./ChangePassword.css";
 
-export default class ResetPassword extends React.Component {
+export default class ChangePassword extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +24,7 @@ export default class ResetPassword extends React.Component {
         event.preventDefault();
         console.log(this.state.username + ' ' + this.state.password + ' ' + this.state.newPassword);
 
-        axios.post('http://3.135.218.245:3001/reset', {
+        axios.post('http://3.135.218.245:3001/change', {
             username: localStorage.getItem('username'),
             password: this.state.password,
 
@@ -42,9 +42,10 @@ export default class ResetPassword extends React.Component {
     }
 
     render() {
-        // Update password ask them to sign in again?
-        if (this.state.passwordUpdate) {
 
+
+        // Update password ask them to sign in again?
+        if (this.state.passwordUpdate || localStorage.getItem('loggedIn') === false) {
             return (
                 <Redirect to='login' />
             );
@@ -55,7 +56,7 @@ export default class ResetPassword extends React.Component {
                 <div className="logo_container">
                     <img alt="minimum" src="https://i.redd.it/8fhjxz0ena261.jpg" />
                 </div>
-                <div className="Reset">
+                <div className="Change">
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Group size="lg" controlId="username">
                             <Form.Label>Username</Form.Label>

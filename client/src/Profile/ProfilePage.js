@@ -22,7 +22,7 @@ export default class ProfilePage extends React.Component {
             usernameSearchSubmitted: false,
             userViewsOwnProfile: false,
             profileInfoFetched: false,
-            clickedResetPassword: false,
+            clickedChangePassword: false,
         };
     }
 
@@ -82,8 +82,8 @@ export default class ProfilePage extends React.Component {
     }
 
     // Allows for the user to reset password
-    handlePasswordReset = () => {
-        this.setState({ clickedResetPassword: true });
+    handlePasswordChange = () => {
+        this.setState({ clickedChangePassword: true });
     }
 
     handleMyProfile = () => {
@@ -102,14 +102,15 @@ export default class ProfilePage extends React.Component {
 
     handleFavoriteButtonClick = () => {
         this.setState({ clickedFavoritesButton: true });
+
     }
 
     render() {
         const name = this.state.firstName + " " + this.state.lastName;
 
-        if (this.state.clickedResetPassword) {
+        if (this.state.clickedChangePassword) {
             return (
-                <Redirect to={'/reset'} />
+                <Redirect to={'/change'} />
             );
         } else if (this.state.clickedMessageButton) {
             return (

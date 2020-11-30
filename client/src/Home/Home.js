@@ -17,6 +17,7 @@ class Home extends React.Component {
             usernameSearch: "",
             usernameSearchSubmitted: false,
             loggedIn: true,
+            clickedChangePassword: false,
         }
     }
 
@@ -45,19 +46,17 @@ class Home extends React.Component {
         this.setState({ usernameSearchSubmitted: true });
     }
 
-    handlePasswordReset = () => {
-        axios.post('http://3.135.218.245:3001/reset', {
-            username: this.state.username,
-            password: this.state.password,
-            newPassword: this.state.newPassword,
-        }).then((res) => {
-            this.setState({ loggedIn: false });
-        });
+    // Allows for the user to reset password
+    handlePasswordChange = () => {
+        this.setState({ clickedChangePassword: true });
     }
 
-
     render() {
-
+        if (this.state.clickedChangePassword) {
+            return (
+                <Redirect to={'/change'} />
+            );
+        }
         if (!this.state.loggedIn) {
             return (
                 <Redirect to={`/login`} />

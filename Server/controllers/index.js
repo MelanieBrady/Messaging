@@ -6,7 +6,7 @@ router.use('/register', require('./register'));
 router.use('/login', require('./login'));
 router.use('/message', require('./message'));
 router.use('/profile', require('./profile'));
-router.use('/reset', require('./reset'));
+router.use('/change', require('./change'));
 router.use('/home', require('./home'));
 
 module.exports = router; 
