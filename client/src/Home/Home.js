@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, FormGroup } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './Home.css';
@@ -105,8 +105,9 @@ class Home extends React.Component {
                     </ul>
                     <ul className="horizontal_SecondRow">
                         <form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
-                            <Form.Control type="text" placeholder="Search for user..."
-                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </form>
+                            <FormGroup role='form'>
+                                <Form.Control type="text" placeholder="Search for user..."
+                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} /> </FormGroup> </form>
                         <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>
                     </ul>
                     <div class="row gutters-sm">
