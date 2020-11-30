@@ -25,6 +25,14 @@ export default class ProfilePage extends React.Component {
     }
 
     componentDidMount() {
+        this.fetchProfile();
+    }
+
+    componentDidUpdate() {
+        this.fetchProfile();
+    }
+
+    fetchProfile = () => {
         const username = this.props.match.params.username;
         console.log(username);
         console.log(localStorage.getItem('token'));
