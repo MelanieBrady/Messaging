@@ -7,19 +7,20 @@ const User = mongoose.model('User');
 
 // End point, handler of request and return response
 router.patch('/add/:username/', tokenUtils.verifyToken, async (req, res) => {
-    const userToAdd = req.body.usernameToAdd;
-    const userLoggedIn = req.params.username;
+    const usernameLoggedIn = req.params.username;
+    const usernameToAdd = req.body.usernameToAdd;
 
-    const user = await User.findOne({ username: userLoggedIn });
+    const userLoggedIn = await User.findOne({ username: usernameLoggedIn });
+    const userToAdd = await User.findOne({ username: usernameToAdd });
 
-    if (user) {
-        user.favoritesList.push(userToAdd);
-        await user.save();
+    if (userLoggedIn && userToAdd) {
+        userLoggedIn.favoritesList.push(usernameToAdd);
+        await userLoggedIn.save();
 
         res.status(200).send({
             success: true,
             message: 'Saved user as favorite!',
-            user,
+            user: userLoggedIn,
         })
     } else {
         res.status(404).send({
