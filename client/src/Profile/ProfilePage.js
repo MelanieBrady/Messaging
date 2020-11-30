@@ -64,16 +64,15 @@ export default class ProfilePage extends React.Component {
     }
 
     // Allows for users to log out!
-    handleLogOutSubmit = (event) => {
+    handleLogOutSubmit = () => {
         this.setState({ loggedIn: false });
         localStorage.setItem('loggedIn', false);
         localStorage.setItem('token', null);
         localStorage.setItem('username', null);
-        event.preventDefault();
     }
 
     // Allows for the user to reset password
-    handlePasswordReset = (event) => {
+    handlePasswordReset = () => {
         axios.post('http://3.135.218.245:3001/reset', {
             username: this.state.username,
             password: this.state.password,
@@ -81,29 +80,24 @@ export default class ProfilePage extends React.Component {
         }).then((res) => {
             this.setState({ loggedIn: false });
         });
-        event.preventDefault();
     }
 
-    handleMyProfile = (event) => {
+    handleMyProfile = () => {
         this.setState({ userViewsOwnProfile: true });
-        event.preventDefault();
     }
 
-    handleUsernameSearchSubmit = (event) => {
+    handleUsernameSearchSubmit = () => {
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
-        event.preventDefault();
     }
 
-    handleMessageButtonClick = (event) => {
+    handleMessageButtonClick = () => {
         console.log(this.state.usernameSearch);
         this.setState({ clickedMessageButton: true });
-        event.preventDefault();
     }
 
-    handleFavoriteButtonClick = (event) => {
+    handleFavoriteButtonClick = () => {
         this.setState({ clickedFavoritesButton: true });
-        event.preventDefault();
     }
 
     render() {
