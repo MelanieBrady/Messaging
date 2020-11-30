@@ -150,7 +150,7 @@ export default class ProfilePage extends React.Component {
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" class="rounded-circle" width="150" />
+                                        <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" width="150" />
                                         <div class="mt-3">
                                             <h4> {name} </h4>
                                             <h6> {this.state.username} </h6>
