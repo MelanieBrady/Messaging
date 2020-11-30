@@ -23,20 +23,26 @@ export default class ChangePassword extends React.Component {
     handleSubmit = (event) => {
         console.log(this.state.username + ' ' + this.state.password + ' ' + this.state.newPassword);
 
-        axios.post('http://3.135.218.245:3001/change', {
-            username: localStorage.getItem('username'),
-            password: this.state.password,
-            newPassword: this.state.newPassword,
-
+        axios.post('http://3.135.218.245:3001/change',
+            {
+                username: localStorage.getItem('username'),
+                password: this.state.password,
+                newPassword: this.state.newPassword,
+            }, {
+            headers: {
+                'x-access-token': localStorage.getItem('token')
+            }
         }).then((res) => {
             console.log(res);
             this.setState({ passwordUpdate: true });
+        }).catch((error) => {
+            console.log(error);
         });
 
     }
 
-    render() {
 
+    render() {
         if (this.state.passwordUpdate) {
             this.setState({ loggedIn: false });
             localStorage.setItem('loggedIn', false);
