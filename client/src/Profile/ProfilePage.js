@@ -33,7 +33,7 @@ export default class ProfilePage extends React.Component {
         }
     }
 
-    componentDidUpdate() {
+    static getDerivedStateFromProps(props, state) {
         if (!this.state.profileInfoFetched) {
             this.fetchProfile();
         }
