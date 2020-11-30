@@ -26,7 +26,9 @@ export default class ProfilePage extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchProfile();
+        if (!this.state.profileInfoFetched) {
+            this.fetchProfile();
+        }
     }
 
     componentDidUpdate() {
@@ -72,8 +74,6 @@ export default class ProfilePage extends React.Component {
                 localStorage.setItem('username', null);
             }
         });
-
-        this.setState({ profileInfoFetched: true });
     }
 
     // Allows for users to log out!
@@ -97,11 +97,13 @@ export default class ProfilePage extends React.Component {
 
     handleMyProfile = () => {
         this.setState({ userViewsOwnProfile: true });
+        this.setState({ profileInfoFetched: true });
     }
 
     handleUsernameSearchSubmit = () => {
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
+        this.setState({ profileInfoFetched: true });
     }
 
     handleMessageButtonClick = () => {
