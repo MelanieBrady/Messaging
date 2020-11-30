@@ -81,7 +81,7 @@ class Home extends React.Component {
                 <Redirect to={'/change'} />
             );
         }
-        if (!this.state.loggedIn || localStorage.getItem('username') == null) {
+        if (!this.state.loggedIn || localStorage.getItem('loggedIn') === false) {
             return (
                 <Redirect to={`/login`} />
             );
