@@ -26,13 +26,13 @@ export default class ProfilePage extends React.Component {
     }
 
     componentDidMount() {
-        if (!this.state.profileInfoFetched) {
+        if (!this.state.profileInfoFetched && (userViewsOwnProfile || usernameSearchSubmitted)) {
             this.fetchProfile();
         }
     }
 
     componentDidUpdate() {
-        if (!this.state.profileInfoFetched) {
+        if (!this.state.profileInfoFetched && (userViewsOwnProfile || usernameSearchSubmitted)) {
             this.fetchProfile();
         }
     }
@@ -97,13 +97,11 @@ export default class ProfilePage extends React.Component {
 
     handleMyProfile = () => {
         this.setState({ userViewsOwnProfile: true });
-        this.setState({ profileInfoFetched: true });
     }
 
     handleUsernameSearchSubmit = () => {
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
-        this.setState({ profileInfoFetched: true });
     }
 
     handleMessageButtonClick = () => {
