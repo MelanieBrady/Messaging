@@ -105,7 +105,7 @@ class Home extends React.Component {
                     </ul>
                     <ul className="horizontal_SecondRow">
                         <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
-                            <FormGroup role='form'>
+                            <FormGroup style={{ 'display': 'flex' }}>
                                 <Form.Control type="text" placeholder="Search for user..."
                                     onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
                                 <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>  </FormGroup> </Form>
