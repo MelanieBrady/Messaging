@@ -29,6 +29,7 @@ router.post('/', tokenUtils.verifyToken, async (req, res) => {
             }
         }
     } catch (e) {
+        console.log(e);
         res.status(500).send({ message: e.message });
     }
 
