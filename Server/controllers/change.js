@@ -25,7 +25,7 @@ router.post('/', tokenUtils.verifyToken, async (req, res) => {
                 user.password = password;
 
                 await user.save();
-                res.status(200).send({ success: true, message: 'Password update', token });
+                res.status(200).send({ success: true, message: 'Password update' });
             }
         }
     } catch (e) {
