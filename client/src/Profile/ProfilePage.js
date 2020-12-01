@@ -123,6 +123,7 @@ export default class ProfilePage extends React.Component {
         }).catch((error) => {
             console.log(error);
         });
+        window.location.reload(false);
     }
 
     handleUnfavoriteButtonClick = () => {
@@ -137,6 +138,8 @@ export default class ProfilePage extends React.Component {
         }).catch((error) => {
             console.log(error);
         });
+
+        window.location.reload(false);
     }
 
     render() {
