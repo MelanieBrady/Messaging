@@ -104,8 +104,6 @@ export default class ProfilePage extends React.Component {
     handleUsernameSearchSubmit = () => {
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
-        window.location.reload(false);
-
     }
 
     handleMessageButtonClick = () => {
@@ -166,6 +164,7 @@ export default class ProfilePage extends React.Component {
                 <Redirect to={'/messaging/' + this.state.username} />
             );
         } else if (this.state.usernameSearchSubmitted) {
+            window.location.reload(false);
             return (
                 <Redirect to={`/profile/${this.state.usernameSearch}`} />
             );
