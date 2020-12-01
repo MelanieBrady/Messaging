@@ -14,14 +14,19 @@ export default class ProfilePage extends React.Component {
             username: '',
             createdAt: '',
             favoritesList: [],
+
             clickedFavoritesButton: false,
             clickedMessageButton: false,
             loggedIn: true,
+
             usernameSearch: "",
             usernameSearchSubmitted: false,
+
             userViewsOwnProfile: false,
             profileInfoFetched: false,
             clickedChangePassword: false,
+            clickedUnfavoritesButton: false,
+            weFavoriteThisUser: false,
         };
     }
 
@@ -35,7 +40,7 @@ export default class ProfilePage extends React.Component {
         const username = this.props.match.params.username;
         console.log(username);
         console.log(localStorage.getItem('token'));
-
+        const curUser = localStorage.getItem('username');
 
         axios.get('http://3.135.218.245:3001/profile/' + username, {
             headers: {
@@ -49,15 +54,25 @@ export default class ProfilePage extends React.Component {
             this.setState({ username: user.username });
             this.setState({ createdAt: user.createdAt });
             this.setState({ favoritesList: user.favoritesList });
-
             console.log(this.state.favoritesList);
-            const curUser = localStorage.getItem('username');
 
-            if (this.state.favoritesList.includes(curUser)) {
-                this.setState({ weAreFriendsWithThisUser: true });
+        }).catch((error) => {
+            console.log(error);
+            if (error.response && error.response.status === 404) {
+                alert('User was not found! :(');
             }
+        });
 
 
+        axios.get('http://3.135.218.245:3001/profile/' + curUser, {
+            headers: {
+                'x-access-token': localStorage.getItem('token')
+            }
+        }).then((res) => {
+            const loggedInUser = res.data.user;
+            if (loggedInUser.favoritesList.includes(this.state.username)) {
+                this.setState({ weFavoriteThisUser: true });
+            }
         }).catch((error) => {
             console.log(error);
             if (error.response && error.response.status === 404) {
@@ -67,7 +82,6 @@ export default class ProfilePage extends React.Component {
 
         this.setState({ profileInfoFetched: true });
     }
-
 
 
     // Allows for users to log out!
@@ -111,12 +125,31 @@ export default class ProfilePage extends React.Component {
         });
     }
 
+    handleUnfavoriteButtonClick = () => {
+        this.setState({ clickedUnfavoritesButton: true });
+        axios.patch('http://3.135.218.245:3001/favorites/remove/' + localStorage.getItem('username'),
+            {
+                usernameToRemove: this.state.username,
+            }, {
+            headers: {
+                'x-access-token': localStorage.getItem('token')
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
     render() {
         const name = this.state.firstName + " " + this.state.lastName;
         const favorites = this.state.favoritesList;
+        let favoriteButton;
 
-        if (this.state.clickedFavoritesButton) {
-
+        // So if we can favorite them
+        if (!this.state.weFavoriteThisUser) {
+            favoriteButton = <Button block size="sm" type="button" variant="danger" style={{ display: 'inlineBlock' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
+            // Unfavorite them: 
+        } else {
+            favoriteButton = <Button block size="sm" type="button" variant="danger" style={{ display: 'inlineBlock' }} onClick={this.handleUnfavoriteButtonClick}> Unfavorite </Button>
         }
 
         if (this.state.clickedChangePassword) {
@@ -169,8 +202,8 @@ export default class ProfilePage extends React.Component {
                                     <div class="mt-3">
                                         <h4> {name} </h4>
                                         <h6> {this.state.username} </h6>
-                                        <Button block size="sm" type="button" style={{ display: 'inlineBlock' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
-                                        <Button block size="sm" type="button" variant="outlinePrimary" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}> Message </Button>
+                                        <div>{favoriteButton}</div>
+                                        <Button block size="sm" type="button" variant="info" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}> Message </Button>
                                     </div>
                                 </div>
                             </div>
