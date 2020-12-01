@@ -4,7 +4,8 @@ import './Homepage.css';
 
 class HomePage extends React.Component {
     render() {
-        if (localStorage.getItem('loggedIn') === true || localStorage.getItem('username') != null) {
+
+        if (localStorage.getItem('loggedIn') === true && localStorage.getItem('username') !== null) {
             return (
                 <Redirect to='home' />
             );
