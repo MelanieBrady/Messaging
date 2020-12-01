@@ -81,7 +81,6 @@ export default class ProfilePage extends React.Component {
         });
 
         this.setState({ profileInfoFetched: true });
-        window.location.reload(false);
     }
 
 
@@ -105,6 +104,8 @@ export default class ProfilePage extends React.Component {
     handleUsernameSearchSubmit = () => {
         console.log(this.state.usernameSearch);
         this.setState({ usernameSearchSubmitted: true });
+        window.location.reload(false);
+
     }
 
     handleMessageButtonClick = () => {
