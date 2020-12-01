@@ -27,6 +27,8 @@ export default class ProfilePage extends React.Component {
             clickedChangePassword: false,
             clickedUnfavoritesButton: false,
             weFavoriteThisUser: false,
+
+            userSearchedNotFound: false,
         };
     }
 
@@ -59,11 +61,8 @@ export default class ProfilePage extends React.Component {
         }).catch((error) => {
             console.log(error);
             if (error.response && error.response.status === 404) {
+                this.setState({ userSearchedNotFound: true });
                 alert('User was not found! :(');
-
-                return (
-                    <Redirect to={`/home`} />
-                );
             }
         });
 
@@ -181,7 +180,7 @@ export default class ProfilePage extends React.Component {
             return (
                 <Redirect to={`/profile/${this.state.usernameSearch}`} />
             );
-        } else if (this.state.userViewsOwnProfile) {
+        } else if (this.state.userViewsOwnProfile || this.state.userSearchedNotFound) {
             return (
                 <Redirect to={`/home`} />
             );
