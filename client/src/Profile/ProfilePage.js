@@ -149,10 +149,10 @@ export default class ProfilePage extends React.Component {
 
         // So if we can favorite them
         if (!this.state.weFavoriteThisUser) {
-            favoriteButton = <Button block size="sm" type="button" variant="info" style={{ display: 'inlineBlock' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
+            favoriteButton = <Button block size="sm" type="button" variant="warning" style={{ display: 'inlineBlock' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
             // Unfavorite them: 
         } else {
-            favoriteButton = <Button block size="sm" type="button" variant="info" style={{ display: 'inlineBlock' }} onClick={this.handleUnfavoriteButtonClick}> Unfavorite </Button>
+            favoriteButton = <Button block size="sm" type="button" variant="warning" style={{ display: 'inlineBlock' }} onClick={this.handleUnfavoriteButtonClick}> Unfavorite </Button>
         }
 
         if (this.state.clickedChangePassword) {
