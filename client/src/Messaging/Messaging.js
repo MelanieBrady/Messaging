@@ -139,7 +139,7 @@ class Messaging extends React.Component {
             );
         }
 
-        if (!this.state.loggedIn) {
+        if (!this.state.loggedIn || localStorage.getItem('loggedIn') === false || localStorage.getItem('username') === null) {
             return (
                 <Redirect to={`/`} />
             );

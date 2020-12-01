@@ -147,6 +147,12 @@ export default class ProfilePage extends React.Component {
         const favorites = this.state.favoritesList;
         let favoriteButton;
 
+        if (!this.state.loggedIn || localStorage.getItem('loggedIn') === false || localStorage.getItem('username') === null) {
+            return (
+                <Redirect to={`/`} />
+            );
+        }
+
         // So if we can favorite them
         if (!this.state.weFavoriteThisUser) {
             favoriteButton = <Button block size="sm" type="button" variant="warning" style={{ display: 'inlineBlock' }} onClick={this.handleFavoriteButtonClick}> Favorite </Button>
@@ -171,10 +177,6 @@ export default class ProfilePage extends React.Component {
         } else if (this.state.userViewsOwnProfile) {
             return (
                 <Redirect to={`/home`} />
-            );
-        } else if (!this.state.loggedIn) {
-            return (
-                <Redirect to={'/login/'} />
             );
         }
 
