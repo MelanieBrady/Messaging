@@ -78,11 +78,6 @@ class Home extends React.Component {
         const name = this.state.firstName + " " + this.state.lastName;
         const favorites = this.state.favoritesList;
 
-        if (this.state.clickedChangePassword) {
-            return (
-                <Redirect to={'/change'} />
-            );
-        }
         if (!this.state.loggedIn || localStorage.getItem('loggedIn') === false || localStorage.getItem('username') === null) {
             return (
                 <Redirect to={`/`} />
@@ -97,6 +92,10 @@ class Home extends React.Component {
             );
         } else if (this.state.userViewsOwnProfile) {
             window.location.reload(false);
+        } else if (this.state.clickedChangePassword) {
+            return (
+                <Redirect to={'/change'} />
+            );
         }
 
         return (
