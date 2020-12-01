@@ -52,7 +52,9 @@ class Home extends React.Component {
         localStorage.setItem('loggedIn', false);
         localStorage.setItem('token', null);
         localStorage.setItem('username', null);
-        window.location.reload(false);
+        return (
+            <Redirect to={`/`} />
+        );
     }
 
     handleMyProfile = () => {
