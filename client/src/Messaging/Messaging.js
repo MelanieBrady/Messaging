@@ -113,6 +113,9 @@ class Messaging extends React.Component {
         localStorage.setItem('loggedIn', false);
         localStorage.setItem('token', null);
         localStorage.setItem('username', null);
+        return (
+            <Redirect to={`/`} />
+        );
     }
 
     // Allows for the user to reset password

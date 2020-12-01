@@ -90,6 +90,9 @@ export default class ProfilePage extends React.Component {
         localStorage.setItem('loggedIn', false);
         localStorage.setItem('token', null);
         localStorage.setItem('username', null);
+        return (
+            <Redirect to={`/`} />
+        );
     }
 
     // Allows for the user to reset password
@@ -143,8 +146,6 @@ export default class ProfilePage extends React.Component {
     }
 
     render() {
-        window.location.reload(false);
-
         const name = this.state.firstName + " " + this.state.lastName;
         const favorites = this.state.favoritesList;
         let favoriteButton;
