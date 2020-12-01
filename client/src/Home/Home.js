@@ -84,7 +84,7 @@ class Home extends React.Component {
         }
         if (!this.state.loggedIn || localStorage.getItem('loggedIn') === false || localStorage.getItem('username') === null) {
             return (
-                <Redirect to={`/login`} />
+                <Redirect to={`/`} />
             );
         } else if (this.state.usernameSearchSubmitted) {
             return (
