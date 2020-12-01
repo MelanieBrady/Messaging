@@ -37,7 +37,7 @@ class Home extends React.Component {
             this.setState({ lastName: user.lastName });
             this.setState({ username: user.username });
             this.setState({ createdAt: user.createdAt });
-            this.setState({ friendsList: user.friendsList });
+            this.setState({ favoritesList: user.favoritesList });
         }).catch((error) => {
             console.log(error);
             if (error.response && error.response.status === 404) {
@@ -75,6 +75,8 @@ class Home extends React.Component {
 
     render() {
         const name = this.state.firstName + " " + this.state.lastName;
+        const favorites = this.state.favoritesList;
+
         if (this.state.clickedChangePassword) {
             return (
                 <Redirect to={'/change'} />
@@ -92,46 +94,62 @@ class Home extends React.Component {
             return (
                 <Redirect to={'/messaging/' + this.state.username} />
             );
-        } else {
-            return (
-                <div>
-                    <ul className="horizontal_TopRow">
-                        <div className="smallLogo">
-                            <img alt="minimum" src="https://i.redd.it/8fhjxz0ena261.jpg" />
-                        </div>
-                        <Button style={{ float: 'left' }} type="button" variant="primary" size="sm" onClick={this.handleMyProfile}>Home</Button>
-                        <Button style={{ float: 'right' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
-                        <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordChange} class="right"> Change Password </Button>
-                    </ul>
-                    <ul className="horizontal_SecondRow">
-                        <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
-                            <FormGroup style={{ 'display': 'flex' }}>
-                                <Form.Control type="text" placeholder="Search for user..."
-                                    onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
-                                <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>  </FormGroup> </Form>
-                    </ul>
-                    <div class="row gutters-sm">
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" width="150" />
-                                        <div class="mt-3">
-                                            <h4> {name} </h4>
-                                            <h6> {this.state.username} </h6>
-                                            <Button block size="sm" type="button" variant="primary" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}>Talk with yourself</Button>
-                                        </div>
+        }
+
+        return (
+            <div>
+                <ul className="horizontal_TopRow">
+                    <div className="smallLogo">
+                        <img alt="minimum" src="https://i.redd.it/8fhjxz0ena261.jpg" />
+                    </div>
+                    <Button style={{ float: 'left' }} type="button" variant="primary" size="sm" onClick={this.handleMyProfile}>Home</Button>
+                    <Button style={{ float: 'right' }} variant="dark" size="sm" onClick={this.handleLogOutSubmit}> Log Out </Button>
+                    <Button style={{ float: 'right' }} variant="secondary" size="sm" onClick={this.handlePasswordChange} class="right"> Change Password </Button>
+                </ul>
+                <ul className="horizontal_SecondRow">
+                    <Form style={{ float: 'left' }} size="sm" onSubmit={this.handleUsernameSearchSubmit}>
+                        <FormGroup style={{ 'display': 'flex' }}>
+                            <Form.Control type="text" placeholder="Search for user..."
+                                onChange={(e) => this.setState({ usernameSearch: e.target.value })} />
+                            <Button style={{ float: 'left', 'backgroundColor': 'black', 'textColor': 'white' }} size="sm" type="submit">Search</Button>  </FormGroup> </Form>
+                </ul>
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="https://comotion.uw.edu/wp-content/uploads/2019/05/generic-profile.png" alt="Admin" width="150" />
+                                    <div class="mt-3">
+                                        <h4> {name} </h4>
+                                        <h6> {this.state.username} </h6>
+                                        <Button block size="sm" type="button" variant="primary" style={{ display: 'inlineBlock' }} onClick={this.handleMessageButtonClick}>Talk with yourself</Button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            );
-        }
-
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3" style={{ float: 'left' }} >
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xs">
+                                        <h6 class="xs-1" style={{ 'marginLeft': '8px' }}>Favorites</h6>
+                                    </div>
+                                    <div>
+                                        {favorites.map(favorite => (
+                                            <div class="col-md text-secondary"> <p> {favorite} </p></div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div >
+        );
     }
-
 };
 
 export default Home;
