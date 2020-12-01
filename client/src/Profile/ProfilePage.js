@@ -60,6 +60,10 @@ export default class ProfilePage extends React.Component {
             console.log(error);
             if (error.response && error.response.status === 404) {
                 alert('User was not found! :(');
+
+                return (
+                    <Redirect to={`/home`} />
+                );
             }
         });
 
