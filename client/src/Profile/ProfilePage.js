@@ -81,6 +81,7 @@ export default class ProfilePage extends React.Component {
         });
 
         this.setState({ profileInfoFetched: true });
+        window.location.reload(false);
     }
 
 
