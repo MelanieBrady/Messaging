@@ -37,6 +37,8 @@ export default class ProfilePage extends React.Component {
     }
 
     fetchProfile = () => {
+        window.location.reload(false);
+
         const username = this.props.match.params.username;
         console.log(username);
         console.log(localStorage.getItem('token'));
