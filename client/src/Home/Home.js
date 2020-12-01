@@ -94,6 +94,8 @@ class Home extends React.Component {
             return (
                 <Redirect to={'/messaging/' + this.state.username} />
             );
+        } else if (this.state.userViewsOwnProfile) {
+            window.location.reload(false);
         }
 
         return (
